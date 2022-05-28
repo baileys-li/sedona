@@ -1,0 +1,35 @@
+-
+	const NAVIGATION = {
+		'Главная': 'index.html',
+		'О Седоне': 'about.html',
+		'Гостиницы': 'catalog.html',
+	}
+
+
+header.header
+	- const isMainPage = currentPage === 'index.html'
+	if isMainPage
+		img(src="https://placeholder.pics/svg/139x70/83B3D3/FFFFFF/Sedona" alt="Герб Седоны", width=139 height=70)._logo
+	else
+		a(href="index.html")._logo
+			img(src="img/logo.svg" alt="Герб Седоны", width=139 height=70)
+
+	nav._nav
+		ul._nav-list
+			each link, text in NAVIGATION
+				li
+					a(href=currentPage === link ? undefined : link)._link=text
+
+	menu._menu
+		li
+			a(href="search.html")._icon Поиск
+		li
+			button(type="button", aria-description="элементов сохранено").favorite._icon
+				span.visually-hidden="Избранное "
+				span._indicator 12
+		li
+			button(type="button")._cta Хочу сюда!
+
+
+
+

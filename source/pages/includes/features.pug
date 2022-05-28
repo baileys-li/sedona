@@ -1,0 +1,75 @@
+-
+	const EXTRA_FEATURES = [
+		{
+			title: "Жилье",
+			description: "Рекомендуем пожить в настоящем мотеле, всё как в кино!",
+			icon: "house"},
+		{
+			title: "Еда",
+			description: "Всегда заказывайте топовый фирменный бургер, вы не разочаруетесь!!",
+			icon: "burger"},
+		{
+			title: "Сувениры",
+			description: "Не только китайского, но и настоящего местного производства!",
+			icon: "gift"}
+	]
+	const FEATURES = [
+		{
+			title: "Настоящий городок",
+			description: "Седона — не аттракцион для туристов, там течёт своя жизнь", accent: true,
+			image: {
+				src: 'https://picsum.photos/800/384',
+				alt: "Уютная площадь в небольшом городишке."
+			},
+			extra: EXTRA_FEATURES
+		}, {
+			title: "Там есть мост дьявола",
+			description: "Да, по нему можно пройти! Если вы осмелитесь, разумеется", accent: true,
+			image: {
+				src: 'https://picsum.photos/800/384?1',
+				alt: "Обтёсанный природой каменный мост сквозь ущелье"
+			}
+		}, {
+			title: "Небольшая площадь",
+			description: "Все достопримечательности находятся очень близко"
+		}, {
+			title: "Красивая дорога",
+			description: "Ехать в Седону из Лас-Вегаса совсем не скучно!"
+		}, {
+			title: "Мало туристов",
+			description: "Большинство едет в Гранд Каньон и толпится там"
+		}]
+
+
+section.features
+	h2.visually-hidden Преимущества
+	p._intro
+		strong._title Седона — небольшой городок в Аризоне, заслуживающий большего!
+		|  Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!
+	ol._list
+		each feature, index in FEATURES
+			if feature.image
+				li._panorama
+					figure._figure(
+						class=`${index !== 0 ? 'features__figure--reverse' : ''}`
+					)
+						figcaption._text-box.-ordered
+							h3._item-title= feature.title
+							p._item-description= feature.description
+
+						img(
+							src=feature.image.src,
+							alt=feature.image.alt
+						)._picture
+					if feature.extra
+						ul._list
+							each subitem in feature.extra
+								li._text-box
+									h4._item-title= subitem.title
+									img(src=`https://placeholder.pics/svg/76x76/FFFFFF/83B3D3/${subitem.icon}`, aria-hidden="true", alt="")
+									p._item-description= subitem.description
+
+			else
+				li._text-box.-ordered
+					h3._item-title= feature.title
+					p._item-description= feature.description

@@ -2,16 +2,19 @@ import gulp from "gulp";
 import browserSync from "browser-sync";
 import compileHTML from "./compileHTML.js";
 
-const server = browserSync.create();
+// const server = browserSync.create();
 
 export default function serve() {
-	server.init({
-		server: {
-			baseDir: "./build",
-		},
-		notify: true,
-		cors: true,
-	});
 
-	gulp.watch("source/pages/**/*.pug", gulp.series(compileHTML, server.reload));
+browserSync.init({
+	server: "./build",
+	notify: true,
+	cors: true,
+	open: true,
+	watch: true
+});
+
+
+	gulp.watch("source/pages/**/*.pug", compileHTML);
+	// gulp.watch("build/*.html", browserSync.reload);
 }

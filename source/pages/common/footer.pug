@@ -1,0 +1,22 @@
+-
+	const SOCIALS = [
+		{icon: "vk", text: "Мы ВКонтанте", link: "https://vk.com/htmlacademy"},
+		{icon: "tg", text: "Наш Телеграм", link: "https://t.me/htmlacademy"},
+		{icon: "youtube", text: "Наш Ютуб канал", link: "https://www.youtube.com/user/htmlacademyru"},
+	]
+
+footer.footer
+	ul._social
+		each social in SOCIALS
+			li
+				a(href=social.link)
+					img(src="https://placeholder.pics/svg/22x17/83B3D3", alt=social.text)
+
+	address
+		a(href="tel:+78128121212")
+			span.visually-hidden Звоните нам на
+			| +7 (812) 812-12-12
+
+	small
+		a(href="https://htmlacademy.ru/")
+			img(src="https://placeholder.pics/svg/115x34/FFFFFF/000000", alt="Разработка сайта от HTML Академии")
