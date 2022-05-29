@@ -1,0 +1,85 @@
+section.hotels
+	h2._title Найдено гостиниц:
+		output 38
+
+	form(method="GET" action="https://echo.htmlacademy.ru/")
+		select(name="sort" aria-label="Сортировать")
+			option(selected, value="cheap") Сначала дешёвые
+			option(value="expensive") Сначала дорогие
+			option(value="popular") Самые популярные
+
+		fieldset
+			legend Вид
+			-
+				const APPEARANCE = {
+					cards: 'Карточками',
+					panorama: 'Панорамой',
+					table: 'Таблицей'
+				}
+
+			each text, option in APPEARANCE
+				label
+					input(type='radio' name='appearance', value=option, checked=option === 'cards')
+					span=text
+
+
+		button(type="submit") Отправить
+
+
+	._list
+		-
+			const HOTELS = [
+				{
+					title:"Amara Resort & Spa",
+					image: "https://picsum.photos/300/211", alt: "Скалы.",
+					type: "Гостиница", price: 5000, href: "hotel/amara",
+					rating: 8.5, stars: 4, altStar: "четырёхзвёздочный"
+				}, {
+					title:"Villas at Poco Diablo",
+					image: "https://picsum.photos/300/211?1", alt: "Горы.",
+					type: "Гостиница", price: 5000, href: "hotel/villas",
+					rating: 9.2, stars: 4, altStar: "четырёхзвёздочный"
+				}, {
+					title:"Desert Quail Inn",
+					image: "https://picsum.photos/300/211?2", alt: "Ещё гора.",
+					type: "Гостиница", price: 2500, href: "hotel/desert",
+					rating: 6.9, stars: 3, altStar: "трёхзвёздочный"
+				},{
+					title:"GreenTree Inn",
+					image: "https://picsum.photos/300/211?3", alt: "И ещё гора.",
+					type: "Гостиница", price: 1500, href: "hotel/desert",
+					rating: 5, stars: 2, altStar: "двухзвёздочный"
+				},
+			]
+
+		each hotel in HOTELS
+			article.hotel-card
+				h3=hotel.title
+				img(src=hotel.image alt=hotel.alt)
+				p=hotel.type
+				p=`От ${hotel.price} ₽`
+				a(href=hotel.href).button Подробнее
+				button(type="button").button В избранное
+
+				p
+					img(src=`https://placeholder.pics/svg/140x47/FFFFFF/83B3D3/${hotel.stars}` alt=hotel.altStar)
+					b=`Рейтинг: ${String(hotel.rating.toFixed(1)).replace(".", ",")}`
+
+	ol(aria-label="Страницы")
+		li(aria-label='Первая страница') 1
+		each li, index in ['Вторая', 'Третья', 'Четвёртая']
+			li
+				a(href="/page2" aria-label=`${li} страница`)=index+2
+		li
+			button(type="button" aria-label="Показать ещё") …
+
+		li(value=10)
+			a(href="/page10" aria-label='Десятая страница')=10
+
+	label
+		| Гостиниц на странице:
+		select(name='amount')
+			option(value=4, selected) 4
+			option(value=8) 8
+			option(value=12) 12
+			option(value=16) 16

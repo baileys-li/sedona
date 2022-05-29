@@ -7,12 +7,14 @@
 
 
 header.header
-	- const isMainPage = currentPage === 'index.html'
+	-
+		const isMainPage = currentPage === 'index.html'
+		const LOGO_SOURCE = "https://placeholder.pics/svg/139x70/83B3D3/FFFFFF/Sedona"
 	if isMainPage
-		img(src="https://placeholder.pics/svg/139x70/83B3D3/FFFFFF/Sedona" alt="Герб Седоны", width=139 height=70)._logo
+		img(src=LOGO_SOURCE, alt="Герб Седоны", width=139, height=70)._logo
 	else
 		a(href="index.html")._logo
-			img(src="img/logo.svg" alt="Герб Седоны", width=139 height=70)
+			img(src=LOGO_SOURCE, alt="Герб Седоны", width=139, height=70)
 
 	nav._nav
 		ul._nav-list

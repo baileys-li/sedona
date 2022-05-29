@@ -1,5 +1,10 @@
 extends common/base
 
 block variables
-	- currentPage = 'catalog.html'
+	-
+		currentPage = 'catalog.html'
+		title="Гостиницы Седоны"
 
+block main
+	include includes/filters
+	include includes/hotels
