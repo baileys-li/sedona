@@ -3,4 +3,5 @@ form.subscription(class=isMainPage ? 'subscription--background' : '', method="PO
 		label(for="email") Подпишитесь на рассылку
 	p._lead#email-desc Только полезная информация и никакого спама, честное бойскаутское!
 	input#email(type="email", name="email", placeholder="Ваш e-mail", required, aria-describedby="email-desc")
-	button._submit Подписаться
+
+	button._submit(type="submit") Подписаться
