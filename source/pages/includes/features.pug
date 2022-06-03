@@ -3,22 +3,22 @@
 		{
 			title: "Жилье",
 			description: "Рекомендуем пожить в настоящем мотеле, всё как в кино!",
-			icon: "house"},
+			icon: "housing"},
 		{
 			title: "Еда",
 			description: "Всегда заказывайте топовый фирменный бургер, вы не разочаруетесь!!",
-			icon: "burger"},
+			icon: "eating"},
 		{
 			title: "Сувениры",
 			description: "Не только китайского, но и настоящего местного производства!",
-			icon: "gift"}
+			icon: "souvenir"}
 	]
 	const FEATURES = [
 		{
 			title: "Настоящий городок",
 			description: "Седона — не аттракцион для туристов, там течёт своя жизнь", accent: true,
 			image: {
-				src: 'https://picsum.photos/800/384',
+				src: 'img/photo-1.jpg',
 				alt: "Уютная площадь в небольшом городишке."
 			},
 			extra: EXTRA_FEATURES
@@ -26,7 +26,7 @@
 			title: "Там есть мост дьявола",
 			description: "Да, по нему можно пройти! Если вы осмелитесь, разумеется", accent: true,
 			image: {
-				src: 'https://picsum.photos/800/384?1',
+				src: 'img/photo-2.jpg',
 				alt: "Обтёсанный природой каменный мост сквозь ущелье"
 			}
 		}, {
@@ -65,9 +65,10 @@ section.features
 							each subitem in feature.extra
 								li._text-box
 									h4._item-title= subitem.title
-									img(src=`https://placeholder.pics/svg/76x76/FFFFFF/83B3D3/${subitem.icon}`, aria-hidden="true", alt="")
-									p._item-description= subitem.description
+									svg(fill='#83B3D3' aria-hidden="true", width=75, height=75)
+										use(href=`img/feature.svg#${subitem.icon}`)
 
+									p._item-description= subitem.description
 			else
 				li._text-box.-ordered
 					h3._item-title= feature.title

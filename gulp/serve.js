@@ -22,6 +22,6 @@ export default function serve() {
 
 	gulp.watch("source/pages/**/*.pug", compileHTML);
 	gulp.watch("source/assets/**/*", gulp.series(copyAssets, server.reload));
-	gulp.watch("source/images/**/*.{jpg,png}", gulp.series(optimizeImages, server.reload));
-	gulp.watch("source/icons/**/*.svg", makeSprite);
+	gulp.watch("source/images/**/*", gulp.series(optimizeImages, server.reload));
+	gulp.watch("source/icons/**/*.svg", gulp.series(makeSprite,server.reload));
 }

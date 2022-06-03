@@ -1,8 +1,11 @@
 -
 	const SOCIALS = [
-		{icon: "vk", text: "Мы ВКонтанте", link: "https://vk.com/htmlacademy"},
-		{icon: "tg", text: "Наш Телеграм", link: "https://t.me/htmlacademy"},
-		{icon: "youtube", text: "Наш Ютуб канал", link: "https://www.youtube.com/user/htmlacademyru"},
+		{icon: "vk", text: "Мы ВКонтанте", link: "https://vk.com/htmlacademy",
+			width: 25, height: 14 },
+		{icon: "telegram", text: "Наш Телеграм", link: "https://t.me/htmlacademy",
+			width: 19, height: 16 },
+		{icon: "youtube", text: "Наш Ютуб канал", link: "https://www.youtube.com/user/htmlacademyru",
+			width: 23, height: 18},
 	]
 
 footer.footer
@@ -10,7 +13,10 @@ footer.footer
 		each social in SOCIALS
 			li
 				a(href=social.link)
-					img(src="https://placeholder.pics/svg/22x17/83B3D3", alt=social.text)
+					-const iconTitle = social.icon + '-title'
+					svg(fill="currentColor", aria-labelledby=iconTitle, role="img", width=social.width, height=social.height)
+						title(id=iconTitle)=social.text
+						use(href=`img/social.svg#${social.icon}`)
 
 	address
 		a(href="tel:+78128121212")
@@ -19,4 +25,4 @@ footer.footer
 
 	small
 		a(href="https://htmlacademy.ru/")
-			img(src="https://placeholder.pics/svg/115x34/FFFFFF/000000", alt="Разработка сайта от HTML Академии")
+			img(src="img/htmlacademy.svg", alt="Разработка сайта от HTML Академии", width=115 height=33)

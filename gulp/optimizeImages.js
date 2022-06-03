@@ -2,10 +2,18 @@ import gulp from "gulp";
 import squoosh from "gulp-squoosh";
 import path from "path";
 import changed from "gulp-changed";
+import svgMin from "gulp-svgmin";
 
-const destinationPath = "build/img"
+const destinationPath = "build/img";
 
-export default function optimizeImages() {
+function optimizeVector() {
+	return gulp
+		.src("source/images/**/*.svg")
+		.pipe(svgMin())
+		.pipe(gulp.dest(destinationPath));
+}
+
+function optimizeRaster() {
 	return gulp
 		.src("source/images/**/*.{jpg,png}")
 		.pipe(changed(destinationPath))
@@ -26,7 +34,7 @@ export default function optimizeImages() {
 						} :
 						{
 							mozjpeg: {
-								quality: 80
+								quality: 80,
 							},
 						}),
 				},
@@ -35,3 +43,5 @@ export default function optimizeImages() {
 
 		.pipe(gulp.dest(destinationPath));
 }
+
+export default gulp.parallel(optimizeVector, optimizeRaster);
