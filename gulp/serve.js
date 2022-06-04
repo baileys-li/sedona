@@ -1,20 +1,27 @@
 import gulp from "gulp";
 import browserSync from "browser-sync";
 import compileHTML from "./compileHTML.js";
+import optimizeImages from "./optimizeImages.js";
+import makeSprite from "./spriteSVG.js";
+import copyAssets from "./copyAssets.js";
 
-// const server = browserSync.create();
+export const build = gulp.series(compileHTML, optimizeImages, makeSprite, copyAssets);
+
+const server = browserSync.create();
 
 export default function serve() {
+	build();
 
-browserSync.init({
-	server: "./build",
-	notify: true,
-	cors: true,
-	open: true,
-	watch: true
-});
-
+	server.init({
+		server: "./build",
+		notify: true,
+		cors: true,
+		open: true,
+		watch: true,
+	});
 
 	gulp.watch("source/pages/**/*.pug", compileHTML);
-	// gulp.watch("build/*.html", browserSync.reload);
+	gulp.watch("source/assets/**/*", gulp.series(copyAssets, server.reload));
+	gulp.watch("source/images/**/*", gulp.series(optimizeImages, server.reload));
+	gulp.watch("source/icons/**/*.svg", gulp.series(makeSprite,server.reload));
 }
