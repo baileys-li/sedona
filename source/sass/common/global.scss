@@ -1,0 +1,22 @@
+$weights: 400, 700;
+
+@each $weight in $weights {
+	@font-face {
+		font-family: "PT Sans";
+		font-weight: $weight;
+		font-style: normal;
+		font-display: swap;
+		src: url("../fonts/pt-sans-cyrillic-#{$weight}-normal.woff2") format("woff2");
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  object-fit: contain;
+}

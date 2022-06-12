@@ -1,9 +1,9 @@
 section.filters
-	h1._title Гостиницы Седоны
+	h1.heading Гостиницы Седоны
 
 	ol.breadcrumb._breadcrumb
 		li
-			a(href="index.html")
+			a(href="index.html")._link
 				svg(fill="currentColor", width=15, height=15, role="img", aria-labelledby="home-title")
 					title#home-title Главная
 					use(href='img/interface.svg#home')
@@ -32,11 +32,11 @@ section.filters
 					span._text=text
 
 
-		fieldset.cost
-			legend.filter-headline Стоимость, ₽
+		fieldset._field
+			legend._legend Стоимость, ₽
 
 			-const SLIDER = { min: 0, max: 12000, values: [0, 9000], step: 100 };
-			p._inputs
+			p.double-number
 				each label, index in ['от', "до"]
 					label._label=label
 						input._input(type="number", value=SLIDER.values[index], min=SLIDER.min, max=SLIDER.max)

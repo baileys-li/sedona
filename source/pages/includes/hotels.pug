@@ -1,15 +1,15 @@
 section.hotels
-	h2._title Найдено гостиниц:
+	h2.subheading Найдено гостиниц:
 		output 38
 
 	form(method="GET" action="https://echo.htmlacademy.ru/")
-		select(name="sort" aria-label="Сортировать")
+		select(name="sort" aria-label="Сортировать").select
 			option(selected, value="cheap") Сначала дешёвые
 			option(value="expensive") Сначала дорогие
 			option(value="popular") Самые популярные
 
 		fieldset
-			legend Вид
+			legend.visually-hidden Вид
 			-
 				const APPEARANCE = {
 					cards: 'Карточками',
@@ -20,7 +20,9 @@ section.hotels
 			each text, option in APPEARANCE
 				label
 					input(type='radio' name='appearance', value=option, checked=option === 'cards')
-					span=text
+					svg(role='img', aria-labelledby=`${option}-title`, fill='black', width=20, height=20)
+						title(id=`${option}-title`)=text
+						use(href=`img/mode.svg#${option}`)
 
 
 		button(type="submit") Отправить
@@ -70,31 +72,32 @@ section.hotels
 
 		each hotel, index in HOTELS
 			article.hotel-card
-				h3=hotel.title
+				h3._title.caption=hotel.title
 				img(src=hotel.image alt=hotel.alt)
 				p=hotel.type
 				p=`От ${hotel.price} ₽`
-				a(href=hotel.href).button Подробнее
-				button(type="button").button В избранное
+				a.button.-secondary(href=hotel.href) Подробнее
+				button.button(class=index === 1 ? 'button--selected' : '',type="button") В избранное
 
-				p
+				p._footer
 					+markStars(hotel.stars, `stars-${index}`, hotel.altStar)
-					b=`Рейтинг: ${String(hotel.rating.toFixed(1)).replace(".", ",")}`
+					b._rate=`Рейтинг: ${String(hotel.rating.toFixed(1)).replace(".", ",")}`
 
-	ol(aria-label="Страницы")
-		li(aria-label='Первая страница') 1
+	ol(aria-label="Страницы").pagination
+		li
+			a._page(aria-label='Первая страница') 1
 		each li, index in ['Вторая', 'Третья', 'Четвёртая']
 			li
-				a(href="/page2" aria-label=`${li} страница`)=index+2
+				a._page(href="/page2" aria-label=`${li} страница`)=index+2
 		li
-			button(type="button" aria-label="Показать ещё") …
+			button._page(type="button" aria-label="Показать ещё") …
 
 		li(value=10)
-			a(href="/page10" aria-label='Десятая страница')=10
+			a._page(href="/page10" aria-label='Десятая страница')=10
 
-	label
+	label._label
 		| Гостиниц на странице:
-		select(name='amount')
+		select(name='amount').select
 			option(value=4, selected) 4
 			option(value=8) 8
 			option(value=12) 12

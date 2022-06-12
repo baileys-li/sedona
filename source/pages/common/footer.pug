@@ -9,17 +9,17 @@
 	]
 
 footer.footer
-	ul._social
+	ul._socials
 		each social in SOCIALS
 			li
-				a(href=social.link)
+				a(href=social.link)._social
 					-const iconTitle = social.icon + '-title'
 					svg(fill="currentColor", aria-labelledby=iconTitle, role="img", width=social.width, height=social.height)
 						title(id=iconTitle)=social.text
 						use(href=`img/social.svg#${social.icon}`)
 
 	address
-		a(href="tel:+78128121212")
+		a._tel(href="tel:+78128121212")
 			span.visually-hidden="Звоните нам на "
 			| +7 (812) 812-12-12
 

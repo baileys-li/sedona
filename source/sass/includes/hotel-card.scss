@@ -1,0 +1,20 @@
+@use "../common/variables";
+
+.hotel-card {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.17;
+	color: variables.$secondary-text;
+	&__title {
+		text-transform: none;
+	}
+	&__rate {
+		background-color: variables.$secondary-light;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.25;
+
+		text-align: center;
+		text-transform: uppercase;
+	}
+}

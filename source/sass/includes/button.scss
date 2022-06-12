@@ -1,0 +1,20 @@
+@use "../common/variables";
+
+.button {
+	font-family: inherit;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.25;
+	text-transform: uppercase;
+
+	color: variables.$main-light;
+	background-color: hsl(204, 48%, 67%);
+	text-decoration: none;
+
+	&--secondary {
+		background-color: hsl(20, 15%, 40%);
+	}
+	&--selected {
+		background-color:hsl(93, 41%, 51%);
+	}
+}
