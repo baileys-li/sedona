@@ -4,6 +4,7 @@
 	color: variables.$secondary-text;
 	&__title {
 		text-transform: none;
+		color: variables.$main-dark;
 	}
 	&__rate {
 		background-color: variables.$secondary-light;

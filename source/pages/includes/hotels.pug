@@ -77,7 +77,10 @@ section.hotels
 				p=hotel.type
 				p=`От ${hotel.price} ₽`
 				a.button.-secondary(href=hotel.href) Подробнее
-				button.button(class=index === 1 ? 'button--selected' : '',type="button") В избранное
+				if index === 1
+					button.button.-selected(type="button") В избранном
+				else
+					button.button(type="button") В избранное
 
 				p._footer
 					+markStars(hotel.stars, `stars-${index}`, hotel.altStar)
