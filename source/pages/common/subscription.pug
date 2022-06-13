@@ -1,7 +1,7 @@
 form.subscription(class=isMainPage ? 'subscription--background' : '', method="POST", action="https://echo.htmlacademy.ru/")
-	h2._title
+	h2.subheading
 		label(for="email") Подпишитесь на рассылку
 	p._lead#email-desc Только полезная информация и никакого спама, честное бойскаутское!
-	input#email(type="email", name="email", placeholder="Ваш e-mail", required, aria-describedby="email-desc")
+	input._input.label#email(type="email", name="email", placeholder="Ваш e-mail", required, aria-describedby="email-desc")
 
-	button._submit(type="submit") Подписаться
+	button.button._submit(type="submit") Подписаться

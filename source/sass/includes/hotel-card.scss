@@ -1,0 +1,13 @@
+@use "../common/variables";
+
+.hotel-card {
+	color: variables.$secondary-text;
+	&__title {
+		text-transform: none;
+	}
+	&__rate {
+		background-color: variables.$secondary-light;
+		font-weight: 400;
+		color: inherit;
+	}
+}

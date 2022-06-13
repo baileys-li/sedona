@@ -1,0 +1,11 @@
+@use "../common/variables";
+
+.double-number {
+	color: rgba(variables.$main-light, 0.3);
+
+	&__input {
+		background-color: transparent;
+		color: variables.$main-light;
+		font: inherit;
+	}
+}

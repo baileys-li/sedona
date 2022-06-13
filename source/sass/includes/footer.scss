@@ -1,0 +1,16 @@
+@use "../common/variables";
+
+.footer {
+	&__social {
+		color: variables.$accent;
+	}
+
+	&__tel {
+		font-style: normal;
+		text-decoration: none;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 1;
+		color: inherit;
+	}
+}

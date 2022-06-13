@@ -1,16 +1,16 @@
 section.filters
-	h1._title Гостиницы Седоны
+	h1.heading Гостиницы Седоны
 
 	ol.breadcrumb._breadcrumb
 		li
-			a(href="index.html")
+			a(href="index.html")._link
 				svg(fill="currentColor", width=15, height=15, role="img", aria-labelledby="home-title")
 					title#home-title Главная
 					use(href='img/interface.svg#home')
 		li Гостиницы
 
 	form._form(method="GET", action="https://echo.htmlacademy.ru/")
-		fieldset._field
+		fieldset._field.label
 			legend._legend Инфраструктура
 
 			-const INFRASTRUCTURE = { pool: "Бассейн", parking: "Парковка", "wi-fi": "Wi-Fi" }
@@ -21,7 +21,7 @@ section.filters
 						value=value, checked= value!=="wi-fi")._native
 					span._text=text
 
-		fieldset._field
+		fieldset._field.label
 			legend._legend Тип жилья
 
 			-const TYPE_HOUSE={ hotel: "Гостиница", motel: "Мотель", apartments: "Апартаменты" }
@@ -32,11 +32,11 @@ section.filters
 					span._text=text
 
 
-		fieldset.cost
-			legend.filter-headline Стоимость, ₽
+		fieldset._field.label
+			legend._legend Стоимость, ₽
 
 			-const SLIDER = { min: 0, max: 12000, values: [0, 9000], step: 100 };
-			p._inputs
+			p.double-number.label
 				each label, index in ['от', "до"]
 					label._label=label
 						input._input(type="number", value=SLIDER.values[index], min=SLIDER.min, max=SLIDER.max)
@@ -58,4 +58,4 @@ section.filters
 			li
 				button.button Применить
 			li
-				button(type="reset")._reset Сбросить
+				button(type="reset")._reset.button Сбросить

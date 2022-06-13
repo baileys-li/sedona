@@ -1,0 +1,14 @@
+@use "../common/variables";
+.pagination {
+	&__page {
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 1.8;
+		text-decoration: none;
+		background-color: variables.$secondary-light;
+		&[href], &[type] {
+			background-color: variables.$accent;
+			color: variables.$main-light;
+		}
+	}
+}

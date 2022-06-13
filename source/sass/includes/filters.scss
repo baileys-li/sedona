@@ -1,0 +1,23 @@
+@use "../common/variables";
+
+.filters {
+	background-color: variables.$accent;
+	background-image: url(../img/filter-bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: variables.$main-light;
+
+
+
+	&__legend {
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 1.3;
+		text-transform: capitalize;
+	}
+
+	&__reset {
+		background-color: transparent;
+		font-weight: 400;
+	}
+}

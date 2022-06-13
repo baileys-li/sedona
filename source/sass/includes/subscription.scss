@@ -1,0 +1,21 @@
+@use "../common/variables";
+
+.subscription {
+	text-align: center;
+
+	&--background {
+		background-color: variables.$accent;
+		background-image: url(../img/background.jpg);
+		color: variables.$main-light;
+	}
+
+	&__input {
+		background-color: variables.$secondary-light;
+		color: variables.$main-dark;
+	}
+
+	&__submit {
+		font-size: 20px;
+		line-height: 1.8;
+	}
+}

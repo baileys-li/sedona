@@ -43,7 +43,7 @@
 section.features
 	h2.visually-hidden Преимущества
 	p._intro
-		strong._title Седона — небольшой городок в Аризоне, заслуживающий большего!
+		strong.subheading._title Седона — небольшой городок в Аризоне, заслуживающий большего!
 		|  Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!
 	ol._list
 		each feature, index in FEATURES
@@ -52,8 +52,8 @@ section.features
 					figure._figure(
 						class=`${index !== 0 ? 'features__figure--reverse' : ''}`
 					)
-						figcaption._text-box.-ordered
-							h3._item-title= feature.title
+						figcaption._text-box.-ordered.label
+							h3.caption= feature.title
 							p._item-description= feature.description
 
 						img(
@@ -61,15 +61,15 @@ section.features
 							alt=feature.image.alt
 						)._picture
 					if feature.extra
-						ul._list
+						ul._list.-sub
 							each subitem in feature.extra
-								li._text-box
-									h4._item-title= subitem.title
+								li._text-box.label
+									h4.caption= subitem.title
 									svg(fill='#83B3D3' aria-hidden="true", width=75, height=75)
 										use(href=`img/feature.svg#${subitem.icon}`)
 
 									p._item-description= subitem.description
 			else
-				li._text-box.-ordered
-					h3._item-title= feature.title
-					p._item-description= feature.description
+				li._text-box.-ordered.label
+					h3.caption=feature.title
+					p._item-description=feature.description
