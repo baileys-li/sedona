@@ -1,9 +1,6 @@
 @use "../common/variables";
 
 .double-number {
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 1.17;
 	color: rgba(variables.$main-light, 0.3);
 
 	&__input {

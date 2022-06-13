@@ -15,10 +15,6 @@
 
 	&__text-box {
 		background-color: rgba(variables.$accent, 12%);
-
-		font-size: 18px;
-		line-height: 1.17;
-
 		&:nth-of-type(even) {
 			background-color: rgba(variables.$accent, 20%);
 		}

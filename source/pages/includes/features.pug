@@ -52,7 +52,7 @@ section.features
 					figure._figure(
 						class=`${index !== 0 ? 'features__figure--reverse' : ''}`
 					)
-						figcaption._text-box.-ordered
+						figcaption._text-box.-ordered.label
 							h3.caption= feature.title
 							p._item-description= feature.description
 
@@ -63,13 +63,13 @@ section.features
 					if feature.extra
 						ul._list.-sub
 							each subitem in feature.extra
-								li._text-box
+								li._text-box.label
 									h4.caption= subitem.title
 									svg(fill='#83B3D3' aria-hidden="true", width=75, height=75)
 										use(href=`img/feature.svg#${subitem.icon}`)
 
 									p._item-description= subitem.description
 			else
-				li._text-box.-ordered
+				li._text-box.-ordered.label
 					h3.caption=feature.title
 					p._item-description=feature.description

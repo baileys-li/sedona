@@ -3,7 +3,7 @@ section.hotels
 		output 38
 
 	form(method="GET" action="https://echo.htmlacademy.ru/")
-		select(name="sort" aria-label="Сортировать").select
+		select(name="sort" aria-label="Сортировать").select.label
 			option(selected, value="cheap") Сначала дешёвые
 			option(value="expensive") Сначала дорогие
 			option(value="popular") Самые популярные
@@ -71,7 +71,7 @@ section.hotels
 					- n++;
 
 		each hotel, index in HOTELS
-			article.hotel-card
+			article.hotel-card.label
 				h3._title.caption=hotel.title
 				img(src=hotel.image alt=hotel.alt)
 				p=hotel.type
@@ -81,7 +81,7 @@ section.hotels
 
 				p._footer
 					+markStars(hotel.stars, `stars-${index}`, hotel.altStar)
-					b._rate=`Рейтинг: ${String(hotel.rating.toFixed(1)).replace(".", ",")}`
+					b._rate.button=`Рейтинг: ${String(hotel.rating.toFixed(1)).replace(".", ",")}`
 
 	ol(aria-label="Страницы").pagination
 		li
@@ -95,7 +95,7 @@ section.hotels
 		li(value=10)
 			a._page(href="/page10" aria-label='Десятая страница')=10
 
-	label._label
+	label.label
 		| Гостиниц на странице:
 		select(name='amount').select
 			option(value=4, selected) 4
