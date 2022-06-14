@@ -1,6 +1,18 @@
 @use "../common/variables";
 
 .header {
+	padding: 0 70px;
+	display: flex;
+	&__nav-list {
+		display: flex;
+		list-style: none;
+		height: 100%;
+		padding: 0;
+		margin: 0 30px;
+		li {
+			padding: 0 17px;
+		}
+	}
 	&__link {
 		font-weight: 700;
 		font-size: 20px;
@@ -8,14 +20,29 @@
 		text-transform: capitalize;
 		color: inherit;
 		text-decoration: none;
+		display: flex;
+		height: 100%;
+		align-items: center;
+	}
+
+	&__menu {
+		display: flex;
+		list-style: none;
+		margin: 0 0 0 auto;
+		padding: 0;
 	}
 
 	&__action {
 		background-color: transparent;
 		color: inherit;
 		text-decoration: none;
+		display: flex;
+		height: 100%;
+		align-items: center;
+		border: none;
+		cursor: pointer;
 
-		&-indicator {
+	&-indicator {
 			background-color: hsl(93, 40.8%, 51%);
 			color: variables.$main-light;
 			font-weight: 400;
@@ -24,5 +51,9 @@
 			text-align: center;
 			letter-spacing: -0.1em;
 		}
+	}
+
+	&__cta {
+		margin: auto 0;
 	}
 }
