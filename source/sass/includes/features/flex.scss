@@ -1,4 +1,4 @@
-@use "../common/variables";
+@use "../../common/variables";
 
 .features {
 	text-align: center;
@@ -6,10 +6,6 @@
 
 	&__intro {
 		color: variables.$secondary-text;
-	}
-
-	&__panorama {
-		width: 100%;
 	}
 
 	&__title {
@@ -41,9 +37,8 @@
 		background-color: rgba(variables.$accent, 12%);
 		padding: 20px;
 		flex: 1 0 30%;
-		min-height: 385px;
+		min-height: 384px;
 		display: grid;
-		// grid-auto-columns: min(230px, 100%);
 		place-content: center;
 		justify-items: center;
 		gap: 30px;
