@@ -1,16 +1,9 @@
 @use "../../common/variables";
 
 .features {
-	text-align: center;
 	counter-set: feature;
 
-	&__intro {
-		color: variables.$secondary-text;
-	}
-
 	&__title {
-		display: block;
-		color: variables.$main-dark;
 		max-width: 700px;
 		margin: 0 auto 30px;
 	}
@@ -39,24 +32,11 @@
 		}
 	}*/
 
-	&__figure {
-		--bg-opacity: 100%;
-		--color-text: 100%;
-	}
-
 	&__figure--reverse &__picture {
 		order: -1;
 	}
 
 	&__picture {
 		grid-column-end: span 2;
-	}
-
-	&__item:nth-child(odd) {
-		--bg-opacity: 12%;
-	}
-
-	&__item:nth-child(4n) {
-		--bg-opacity: 20%;
 	}
 }

@@ -1,21 +1,16 @@
 @use "../../common/variables";
 
 .features {
-	text-align: center;
 	counter-set: feature;
 
-	&__intro {
-		color: variables.$secondary-text;
-	}
-
 	&__title {
-		display: block;
-		color: variables.$main-dark;
 		max-width: 700px;
 		margin: 0 auto 30px;
 	}
 
-	&__list, &__panorama, &__figure {
+	&__list,
+	&__panorama,
+	&__figure {
 		display: flex;
 		flex-wrap: wrap;
 		list-style: none;
@@ -28,22 +23,8 @@
 		flex-direction: row-reverse;
 	}
 
-
 	&__picture {
 		flex: 1 0 60%;
-	}
-
-	&__figure {
-		--bg-opacity: 100%;
-		--color-text: 100%;
-	}
-
-	&__item:nth-child(odd) {
-		--bg-opacity: 12%;
-	}
-
-	&__item:nth-child(4n) {
-		--bg-opacity: 20%;
 	}
 
 	.feature {
