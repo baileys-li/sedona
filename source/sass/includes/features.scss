@@ -2,21 +2,66 @@
 
 .features {
 	text-align: center;
+	counter-set: feature;
 
 	&__intro {
 		color: variables.$secondary-text;
 	}
 
+	&__panorama {
+		width: 100%;
+	}
+
 	&__title {
 		display: block;
 		color: variables.$main-dark;
+		max-width: 700px;
+		margin: 0 auto 30px;
+	}
+
+	&__list, &__panorama, &__figure {
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		flex-basis: 100%;
+	}
+
+	&__figure--reverse {
+		flex-direction: row-reverse;
 	}
 
 
+	&__picture {
+		flex: 1 0 60%;
+	}
+
 	&__text-box {
 		background-color: rgba(variables.$accent, 12%);
+		padding: 20px;
+		flex: 1 0 30%;
+		min-height: 385px;
+		display: grid;
+		// grid-auto-columns: min(230px, 100%);
+		place-content: center;
+		justify-items: center;
+		gap: 30px;
+
 		&:nth-of-type(even) {
 			background-color: rgba(variables.$accent, 20%);
+		}
+
+		&--order::before {
+			display: block;
+			counter-increment: feature;
+			content: "— №" counter(feature) " —";
+			grid-row: 2 / 3;
+		}
+
+		.caption {
+			margin: 0;
+			max-width: 10ch;
 		}
 	}
 
@@ -35,5 +80,14 @@
 
 	&__list--sub &__text-box:nth-of-type(even) {
 		background-color: #fff;
+	}
+
+	&__icon {
+		order: -1;
+	}
+
+	&__item-description {
+		margin: 0;
+		max-width: 230px;
 	}
 }
