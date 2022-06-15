@@ -10,11 +10,9 @@ header.header
 	-
 		const isMainPage = currentPage === 'index.html'
 		const LOGO_SOURCE = "img/sedona.svg"
-	if isMainPage
-		img(src=LOGO_SOURCE, alt="Герб Седоны", width=139, height=70)._logo
-	else
-		a(href="index.html")._logo
-			img(src=LOGO_SOURCE, alt="Герб Седоны", width=139, height=70)
+
+	a(href=isMainPage ? undefined : "index.html")._logo
+		img(src=LOGO_SOURCE, alt="Герб Седоны", width=139, height=70)
 
 	nav._nav
 		ul._nav-list

@@ -3,16 +3,30 @@
 .header {
 	padding: 0 70px;
 	display: flex;
-	&__nav-list {
-		display: flex;
-		list-style: none;
-		height: 100%;
-		padding: 0;
-		margin: 0 30px;
+	position: relative;
+
+	&__logo {
+		display: block;
+		margin-bottom: -10px;
+	}
+
+	&__nav {
+		margin-bottom: -1px;
+
+		&-list {
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			height: 100%;
+			padding: 0;
+			margin: 0 30px;
+		}
+
 		li {
 			padding: 0 17px;
 		}
 	}
+
 	&__link {
 		font-weight: 700;
 		font-size: 20px;
@@ -23,6 +37,10 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
+
+		&:not([href]) {
+			border-bottom: 2px solid #756257;
+		}
 	}
 
 	&__menu {
@@ -42,7 +60,7 @@
 		border: none;
 		cursor: pointer;
 
-	&-indicator {
+		&-indicator {
 			background-color: hsl(93, 40.8%, 51%);
 			color: variables.$main-light;
 			font-weight: 400;
