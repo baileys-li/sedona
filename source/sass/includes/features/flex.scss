@@ -25,9 +25,11 @@
 
 	&__picture {
 		flex: 1 0 60%;
+    height: auto;
 	}
 
 	.feature {
+    // width: 400px;
 		flex: 1 0 30%;
 	}
 }
