@@ -1,0 +1,27 @@
+@use "../../common/variables";
+
+.features {
+	text-align: center;
+
+	&__intro {
+		color: variables.$secondary-text;
+	}
+
+	&__title {
+		display: block;
+		color: variables.$main-dark;
+	}
+
+	&__figure {
+		--bg-opacity: 100%;
+		--color-text: 100%;
+	}
+
+	&__item:nth-child(odd) {
+		--bg-opacity: 12%;
+	}
+
+	&__item:nth-child(4n) {
+		--bg-opacity: 20%;
+	}
+}

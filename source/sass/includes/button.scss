@@ -1,20 +1,60 @@
 @use "../common/variables";
 
 .button {
-	font-family: inherit;
-	font-weight: 700;
-	font-size: 16px;
+	font: {
+		family: inherit;
+		weight: 700;
+		size: 16px;
+	}
 	line-height: 1.25;
-	text-transform: uppercase;
+	text: {
+		transform: uppercase;
+		decoration: none;
+	}
 
-	color: variables.$main-light;
-	background-color: hsl(204, 48%, 67%);
-	text-decoration: none;
+	color: hsla(0, 0%, 100%, var(--color-opacity, 1));
+	background-color: hsl(204, 48%, var(--bg-l, 67%));
+
+	min-width: 160px;
+	padding: 8px 15px;
+	border-radius: 4px;
+	border: none;
+
+	transition: {
+		property: background-color, color;
+		duration: 200ms;
+		timing-function: ease-in;
+	}
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		--bg-l: 60%;
+	}
+
+	&:active {
+		--color-opacity: 0.3;
+	}
 
 	&--secondary {
-		background-color: hsl(20, 15%, 40%);
+		background-color: hsl(20, 15%, var(--bg-l, 40%));
+
+		&:hover,
+		&:focus {
+			--bg-l: 33%;
+		}
 	}
 	&--selected {
-		background-color:hsl(93, 41%, 51%);
+		background-color: hsl(93, 41%, var(--bg-l, 51%));
+
+		&:hover,
+		&:focus {
+			--bg-l: 44%;
+		}
+	}
+
+	&:disabled {
+		background-color: hsla(0, 0%, 90%);
+		cursor: default;
 	}
 }

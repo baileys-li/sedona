@@ -1,0 +1,14 @@
+.link {
+	&[href], &[type] {
+		color: inherit;
+
+
+		&:hover, &:focus {
+			color: hsl(20, 15%, 40%);
+		}
+
+		&:active {
+			color: hsl(20 15% 40% / 30%);
+		}
+	}
+}

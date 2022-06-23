@@ -10,31 +10,29 @@ header.header
 	-
 		const isMainPage = currentPage === 'index.html'
 		const LOGO_SOURCE = "img/sedona.svg"
-	if isMainPage
-		img(src=LOGO_SOURCE, alt="Герб Седоны", width=139, height=70)._logo
-	else
-		a(href="index.html")._logo
-			img(src=LOGO_SOURCE, alt="Герб Седоны", width=139, height=70)
+
+	a(href=isMainPage ? undefined : "index.html")._logo
+		img(src=LOGO_SOURCE, alt="Герб Седоны", width=139, height=70)
 
 	nav._nav
 		ul._nav-list
 			each link, text in NAVIGATION
 				li
-					a(href=currentPage === link ? undefined : link)._link=text
+					a.link._link(href=currentPage === link ? undefined : link)=text
 
 	menu._menu
 		li
-			a._action(href="search.html")._icon
-				svg(width=18, height=18, fill="currentColor" aria-labelledby="search-title" role="img")
+			a.link._action(href="search.html")
+				svg(width=20, height=20, fill="currentColor" aria-labelledby="search-title" role="img")
 					title#search-title Поиск
 					use(href="img/interface.svg#search")
 		li
-			button._action(type="button" aria-label="Избранное" aria-description="12 элементов сохранено").favorite._icon
-				svg(width=18, height=18, fill="currentColor" aria-hidden="true")
+			button.favorite.link._action(type="button" aria-label="Избранное" aria-description="12 элементов сохранено")
+				svg(width=20, height=20, fill="currentColor" aria-hidden="true")
 					use(href="img/interface.svg#heart")
-				span._action-indicator 12
-		li
-			button(type="button").button.-secondary._cta Хочу сюда!
+				span._indicator 12
+		li._cta
+			button(type="button").button.-secondary Хочу сюда!
 
 
 

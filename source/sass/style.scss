@@ -2,14 +2,15 @@
 
 @use "includes/page";
 @use "includes/header";
+@use "includes/visually-hidden";
+@use "includes/favorite";
 @use "includes/button";
-@use "includes/heading";
-@use "includes/subheading";
-@use "includes/caption";
-@use "includes/label";
+@use "includes/link";
+@use "includes/text";
 @use "includes/footer";
 @use "includes/intro";
 @use "includes/features";
+@use "includes/feature";
 @use "includes/cta";
 @use "includes/subscription";
 @use "includes/filters";

@@ -1,0 +1,8 @@
+.feature {
+  background-color: hsla(204, 48%, 67%, var(--bg-opacity, 0%));
+  color: hsl(0, 0%, var(--color-text, 20%));
+
+  .caption {
+    color: hsl(0, 0%, var(--color-text, 0%));
+  }
+}

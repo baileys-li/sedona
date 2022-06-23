@@ -6,11 +6,11 @@
 			icon: "housing"},
 		{
 			title: "Еда",
-			description: "Всегда заказывайте топовый фирменный бургер, вы не разочаруетесь!!",
+			description: "Всегда заказывайте топовый фирменный бургер, вы не разочаруетесь!",
 			icon: "eating"},
 		{
 			title: "Сувениры",
-			description: "Не только китайского, но и настоящего местного производства!",
+			description: "Не только китайского, но и настоящего местного производства!",
 			icon: "souvenir"}
 	]
 	const FEATURES = [
@@ -52,24 +52,26 @@ section.features
 					figure._figure(
 						class=`${index !== 0 ? 'features__figure--reverse' : ''}`
 					)
-						figcaption._text-box.-ordered.label
+						figcaption.feature.-order.-order.label
 							h3.caption= feature.title
-							p._item-description= feature.description
+							p._description= feature.description
 
 						img(
 							src=feature.image.src,
 							alt=feature.image.alt
-						)._picture
+              width=800
+              height=384
+						).features__picture
 					if feature.extra
 						ul._list.-sub
 							each subitem in feature.extra
-								li._text-box.label
+								li.feature.label._item
 									h4.caption= subitem.title
-									svg(fill='#83B3D3' aria-hidden="true", width=75, height=75)
+									svg._icon(fill='#83B3D3' aria-hidden="true", width=75, height=75)
 										use(href=`img/feature.svg#${subitem.icon}`)
 
-									p._item-description= subitem.description
+									p._description= subitem.description
 			else
-				li._text-box.-ordered.label
+				li.feature.-order.label._item
 					h3.caption=feature.title
-					p._item-description=feature.description
+					p._description=feature.description

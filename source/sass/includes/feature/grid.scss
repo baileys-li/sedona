@@ -1,0 +1,34 @@
+.feature {
+	background-color: hsla(204, 48%, 67%, var(--bg-opacity, 0%));
+	min-height: 384px;
+	display: grid;
+	place-content: center;
+	justify-items: center;
+	gap: 30px;
+	padding: 20px;
+	color: hsl(0, 0%, var(--color-text, 20%));
+
+	.caption {
+		margin: 0;
+		max-width: 10ch;
+		color: hsl(0, 0%, var(--color-text, 0%));
+	}
+
+
+	&--order::before {
+		display: block;
+		counter-increment: feature;
+		content: "— №" counter(feature) " —";
+		grid-row: 2 / 3;
+	}
+
+	&__description {
+		margin: 0;
+		max-width: 240px;
+
+	}
+
+	&__icon {
+		order: -1;
+	}
+}
