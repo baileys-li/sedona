@@ -6,4 +6,20 @@
 		size: cover;
 	}
 	text-align: center;
+	min-height: 485px;
+	padding: 51px;
+	position: relative;
+	overflow: hidden;
+
+	&::after {
+		content: "";
+		background-color: #fff;
+		position: absolute;
+		bottom: -1px;
+		left: -0.5%;
+		height: 60px;
+		width: 101%;
+
+		clip-path: polygon(0 100%, 0 0, 21.2% 42%, 21.2% 0%, 50% 97%, 78.8% 0%, 78.8% 42%, 100% 0, 100% 100%);
+	}
 }

@@ -22,7 +22,7 @@
     &::before {
       display: block;
       counter-increment: feature;
-      content: "— №" counter(feature) " —";
+      content: "- №" counter(feature) " -";
     }
   }
 
