@@ -16,20 +16,20 @@ section.filters
 			-const INFRASTRUCTURE = { pool: "Бассейн", parking: "Парковка", "wi-fi": "Wi-Fi" }
 
 			each text, value in INFRASTRUCTURE
-				label.custom-checkbox
+				label.custom-chose
 					input(type="checkbox", name="infrastructure", id=value,
 						value=value, checked= value!=="wi-fi")._native
-					span._text=text
+					span._text.-checkbox=text
 
 		fieldset._field.label
 			legend._legend Тип жилья
 
 			-const TYPE_HOUSE={ hotel: "Гостиница", motel: "Мотель", apartments: "Апартаменты" }
 			each text, value in TYPE_HOUSE
-				label.custom-radio
+				label.custom-chose
 					input(type="radio", name="type", id=value,
 						value=value, checked= value==="hotel")._native
-					span._text=text
+					span._text.-radio=text
 
 
 		fieldset._field.label

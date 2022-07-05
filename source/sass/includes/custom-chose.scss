@@ -1,0 +1,63 @@
+@use "../common/variables";
+
+.custom-chose {
+	&__native {
+		position: absolute;
+		appearance: none;
+	}
+
+	&__text {
+		display: inline-flex;
+		gap: 19px;
+		transition: opacity 0.2s;
+
+		&::before {
+			content: "";
+			width: 20px;
+			height: 20px;
+			background-color: #fff;
+		}
+
+		&--radio::before {
+			background-color: #3f5e73;
+			border-radius: 50%;
+			transition: box-shadow 0.5s;
+			box-shadow: inset 0 0 0 10px #fff;
+		}
+
+		&--checkbox {
+			&::before {
+				border-radius: 4px;
+				transition: background 0.4s;
+			}
+
+			&:hover::before {
+				background-color: rgba(#fff, 60%);
+			}
+
+			&:active::before {
+				background-color: rgba(#fff, 30%);
+			}
+		}
+	}
+
+	&__native:checked + &__text--radio::before {
+		box-shadow: inset 0 0 0 5px #fff;
+	}
+
+	&__native:checked + &__text--checkbox::before {
+		background-image: url(../img/checkbox.svg);
+	}
+
+	&__native:disabled + &__text {
+		opacity: 0.6;
+	}
+
+	&__native:focus + &__text::before {
+		outline: 2px solid variables.$accent;
+	}
+
+	&__native:focus + &__text--checkbox::before {
+		background-color: rgba(#fff, 60%);
+	}
+}
