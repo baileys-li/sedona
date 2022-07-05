@@ -1,4 +1,14 @@
-/* .hotels {
+.hotels {
+	padding: 55px 72px 25px;
 
+	display: grid;
+	grid-template-columns: 1fr auto;
+
+
+	&__list {
+		grid-column: 1 / -1;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
- */
+
