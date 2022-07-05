@@ -1,7 +1,41 @@
+@mixin arrow {
+	content: "";
+	width: 6px;
+	height: 8px;
+	margin: 0 10px;
+	background-color: #fff;
+	mask: url(../img/breadcrumbs.svg) no-repeat center / cover;
+}
+
 .breadcrumb {
 	font-size: 16px;
 	line-height: 1.3125;
+
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	display: flex;
+
+	/* li + li {
+		display: flex;
+		align-items: center;
+
+		&::before {
+			@include arrow;
+		}
+	} */
+
+	li {
+		display: flex;
+		align-items: center;
+		&:not(:last-child)::after {
+			@include arrow;
+		}
+	}
 	&__link {
+		display: flex;
+		align-items: center;
 		color: inherit;
 	}
 }
