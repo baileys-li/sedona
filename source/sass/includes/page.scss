@@ -8,11 +8,16 @@
 	font-weight: normal;
 	font-style: normal;
 	line-height: 1.18;
+	height: 100%;
 
 	&__body {
 		max-width: 1200px;
 		margin: 0 auto;
 		background-color: variables.$main-light;
 		color: variables.$main-dark;
+		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+		min-height: 100%;
 	}
 }

@@ -3,6 +3,10 @@
 .features {
 	counter-set: feature;
 
+	&__intro {
+		margin: 63px 0 90px;
+	}
+
 	&__title {
 		max-width: 700px;
 		margin: 0 auto 30px;

@@ -3,9 +3,62 @@
 .double-number {
 	color: rgba(variables.$main-light, 0.3);
 
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	font-size: 18px;
+	line-height: 1.28;
+	color: transparentize(variables.$main-light, 0.7);
+	position: relative;
+	// width: 288px;
+
+	&__label {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: baseline;
+		padding: 11px 13px 11px 17px;
+		border: 2px solid variables.$main-light;
+
+		&:focus-within {
+			box-shadow: 0px 0px 0px 3px #81b3d2, inset 0px 0px 0px 3px #81b3d2;
+		}
+
+		&:not(:focus-within):hover {
+			border-color: transparentize(variables.$main-light, 0.4);
+		}
+
+		&:active {
+			background-color: #756257;
+		}
+
+		&:first-child {
+			border-radius: 4px 0 0 4px;
+			border-right-width: 0;
+			margin-right: 2px;
+
+			&:hover {
+				border-right-width: 2px;
+				margin-right: 0;
+			}
+		}
+		&:hover + &:not(:focus-within) {
+			border-left: 0;
+			margin-left: 0;
+		}
+		&:last-child {
+			position: relative;
+			z-index: 1;
+			margin-left: -2px;
+			border-radius: 0 4px 4px 0;
+		}
+	}
+
 	&__input {
-		background-color: transparent;
+		all: unset;
 		color: variables.$main-light;
 		font: inherit;
+		order: -1;
+		padding: 0;
+		width: 92px;
+		outline: none;
 	}
 }

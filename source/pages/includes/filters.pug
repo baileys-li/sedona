@@ -1,5 +1,5 @@
 section.filters
-	h1.heading Гостиницы Седоны
+	h1.heading._title Гостиницы Седоны
 
 	ol.breadcrumb._breadcrumb
 		li
@@ -16,32 +16,32 @@ section.filters
 			-const INFRASTRUCTURE = { pool: "Бассейн", parking: "Парковка", "wi-fi": "Wi-Fi" }
 
 			each text, value in INFRASTRUCTURE
-				label.custom-checkbox
+				label.custom-chose
 					input(type="checkbox", name="infrastructure", id=value,
 						value=value, checked= value!=="wi-fi")._native
-					span._text=text
+					span._text.-checkbox=text
 
 		fieldset._field.label
 			legend._legend Тип жилья
 
 			-const TYPE_HOUSE={ hotel: "Гостиница", motel: "Мотель", apartments: "Апартаменты" }
 			each text, value in TYPE_HOUSE
-				label.custom-radio
+				label.custom-chose
 					input(type="radio", name="type", id=value,
 						value=value, checked= value==="hotel")._native
-					span._text=text
+					span._text.-radio=text
 
 
 		fieldset._field.label
 			legend._legend Стоимость, ₽
 
-			-const SLIDER = { min: 0, max: 12000, values: [0, 9000], step: 100 };
-			p.double-number.label
+			-const SLIDER = { min: 0, max: 11000, values: [0, 9000], step: 100 };
+			p.double-number.label._cost
 				each label, index in ['от', "до"]
 					label._label=label
 						input._input(type="number", value=SLIDER.values[index], min=SLIDER.min, max=SLIDER.max)
 
-			p.range-slider._range(
+			p.range-slider(
 				style=`--first-val: ${(SLIDER.values[0] * 100) / (SLIDER.max - SLIDER.min)}%; --second-val: ${(SLIDER.values[1] * 100) / (SLIDER.max - SLIDER.min)}%;`
 				)
 				each label, index in ["Минимальная", "Максимальная"]
@@ -56,6 +56,6 @@ section.filters
 
 		menu._buttons
 			li
-				button.button Применить
+				button.button._submit Применить
 			li
 				button(type="reset")._reset.button Сбросить

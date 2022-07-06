@@ -27,10 +27,10 @@ header.header
 					title#search-title Поиск
 					use(href="img/interface.svg#search")
 		li
-			button.favorite.link._action(type="button" aria-label="Избранное" aria-description="12 элементов сохранено")
+			button.favorite.link._action(type="button" aria-label="Избранное" aria-description="12 элементов сохранено" data-choose=12)
 				svg(width=20, height=20, fill="currentColor" aria-hidden="true")
 					use(href="img/interface.svg#heart")
-				span._indicator 12
+				//- span._indicator 12
 		li._cta
 			button(type="button").button.-secondary Хочу сюда!
 

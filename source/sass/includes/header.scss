@@ -4,10 +4,11 @@
 	padding: 0 70px;
 	display: flex;
 	position: relative;
+	z-index: 2;
 
 	&__logo {
 		display: block;
-		margin-bottom: -10px;
+		margin-bottom: -26px;
 
 		&[href] {
 			&:hover,
@@ -34,23 +35,6 @@
 		}
 	}
 
-	&__link {
-		font-weight: 700;
-		font-size: 20px;
-		line-height: 1.3;
-		text-transform: capitalize;
-		color: inherit;
-		text-decoration: none;
-		display: flex;
-		height: 100%;
-		align-items: center;
-		border-bottom: 2px solid transparent;
-
-		&:not([href]) {
-			border-color: hsl(22, 15%, 40%);
-		}
-	}
-
 	&__menu {
 		display: flex;
 		list-style: none;
@@ -58,18 +42,33 @@
 		padding: 0;
 	}
 
+	&__link {
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 1.3;
+		text-transform: capitalize;
+		border-bottom: 2px solid transparent;
+
+		&:not([href]) {
+			border-color: hsl(22, 15%, 40%);
+		}
+	}
+
+	&__link,
 	&__action {
-		background-color: transparent;
-		color: inherit;
-		text-decoration: none;
 		display: flex;
+		text-decoration: none;
 		height: 100%;
 		align-items: center;
+		min-height: 65px;
+	}
+
+	&__action {
+		background-color: transparent;
 		justify-content: center;
 		border: none;
 		cursor: pointer;
 		min-width: 42px;
-
 		padding: 0;
 	}
 

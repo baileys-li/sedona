@@ -1,8 +1,17 @@
 .cta {
 	text-align: center;
+	margin: 90px 20px 92px;
+
+	.subheading {
+		margin: 0 0 30px;
+	}
 
 	.button {
+		margin-top: 34px;
 		font-size: 20px;
 		line-height: 1.8;
+		width: 100%;
+		max-width: 574px;
+		padding: 12px;
 	}
 }

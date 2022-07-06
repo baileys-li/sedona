@@ -1,8 +1,29 @@
 @use "../common/variables";
 
 .footer {
+	padding: 40px 70px 30px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	&__socials {
+		display: grid;
+		grid-auto: {
+			flow: column;
+			rows: 40px;
+			columns: 47px;
+		}
+		gap: 1px;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
 	&__social {
 		color: variables.$accent;
+		display: grid;
+		height: 100%;
+		place-items: center;
 	}
 
 	&__tel {
