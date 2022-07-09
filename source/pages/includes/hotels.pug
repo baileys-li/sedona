@@ -1,14 +1,14 @@
 section.hotels
-	h2.subheading Найдено гостиниц:
+	h2.subheading._title Найдено гостиниц:
 		output 38
 
-	form(method="GET" action="https://echo.htmlacademy.ru/")
+	form(method="GET" action="https://echo.htmlacademy.ru/")._form
 		select(name="sort" aria-label="Сортировать").select.label
 			option(selected, value="cheap") Сначала дешёвые
 			option(value="expensive") Сначала дорогие
 			option(value="popular") Самые популярные
 
-		fieldset
+		fieldset.mode
 			legend.visually-hidden Вид
 			-
 				const APPEARANCE = {
@@ -18,14 +18,14 @@ section.hotels
 				}
 
 			each text, option in APPEARANCE
-				label
-					input(type='radio' name='appearance', value=option, checked=option === 'cards')
+				input(type='radio' name='appearance', value=option, id=`mode-${option}` checked=option === 'cards').visually-hidden.mode__input
+				label.mode__label(for=`mode-${option}`)
 					svg(role='img', aria-labelledby=`${option}-title`, fill='black', width=20, height=20)
 						title(id=`${option}-title`)=text
 						use(href=`img/mode.svg#${option}`)
 
 
-		button(type="submit") Отправить
+		button(type="submit").visually-hidden Отправить
 
 
 	._list
@@ -58,7 +58,7 @@ section.hotels
 
 		mixin markStars(stars, label, alt)
 			svg(
-				width=stars * starSize + (stars - 1) * gap,
+				width=stars * starSize + (stars - 1) * starGap,
 				height=starSize,
 				fill="#83B3D3",
 				role="img",
@@ -73,18 +73,17 @@ section.hotels
 		each hotel, index in HOTELS
 			article.hotel-card.label
 				h3._title.caption=hotel.title
-				img(src=hotel.image alt=hotel.alt)
-				p=hotel.type
-				p=`От ${hotel.price} ₽`
+				img._image(src=hotel.image alt=hotel.alt)
+				p._info=hotel.type
+				p._info=`От ${hotel.price} ₽`
 				a.button.-secondary(href=hotel.href) Подробнее
 				if index === 1
 					button.button.-selected(type="button") В избранном
 				else
 					button.button(type="button") В избранное
 
-				p._footer
-					+markStars(hotel.stars, `stars-${index}`, hotel.altStar)
-					b._rate.button=`Рейтинг: ${String(hotel.rating.toFixed(1)).replace(".", ",")}`
+				+markStars(hotel.stars, `stars-${index}`, hotel.altStar)
+				p._rate.button=`Рейтинг: ${String(hotel.rating.toFixed(1)).replace(".", ",")}`
 
 	ol(aria-label="Страницы").pagination
 		li
@@ -98,7 +97,7 @@ section.hotels
 		li(value=10)
 			a._page(href="/page10" aria-label='Десятая страница')=10
 
-	label.label
+	label.label._amount
 		| Гостиниц на странице:
 		select(name='amount').select
 			option(value=4, selected) 4

@@ -18,7 +18,7 @@ section.filters
 			each text, value in INFRASTRUCTURE
 				label.custom-chose
 					input(type="checkbox", name="infrastructure", id=value,
-						value=value, checked= value!=="wi-fi")._native
+						value=value, checked= value!=="wi-fi").visually-hidden._native
 					span._text.-checkbox=text
 
 		fieldset._field.label
@@ -28,7 +28,7 @@ section.filters
 			each text, value in TYPE_HOUSE
 				label.custom-chose
 					input(type="radio", name="type", id=value,
-						value=value, checked= value==="hotel")._native
+						value=value, checked= value==="hotel").visually-hidden._native
 					span._text.-radio=text
 
 

@@ -1,0 +1,22 @@
+.mode {
+	border: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	gap: 8px;
+
+	&__label {
+		width: 48px;
+		height: 48px;
+		display: grid;
+		place-items: center;
+		border: 2px solid hsl(0, 0%, 90%);
+		border-radius: 4px;
+
+		transition: border-color 0.4s;
+	}
+
+	&__input:checked + &__label {
+		border-color: hsl(0, 0%, 0%);
+	}
+}

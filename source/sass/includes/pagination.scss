@@ -1,11 +1,25 @@
 @use "../common/variables";
 .pagination {
+	list-style: none;
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 60px;
+	grid-auto-rows: 60px;
+	padding: 0;
+	gap: 8px;
+	margin: 0;
 	&__page {
 		font-weight: 700;
 		font-size: 20px;
 		line-height: 1.8;
 		text-decoration: none;
 		background-color: variables.$secondary-light;
+		display: grid;
+		place-items: center;
+		height: 100%;
+		width: 100%;
+		border: none;
+		border-radius: 4px;
 		&[href], &[type] {
 			background-color: variables.$accent;
 			color: variables.$main-light;
