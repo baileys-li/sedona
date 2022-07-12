@@ -18,7 +18,7 @@ header.header
 		ul._nav-list
 			each link, text in NAVIGATION
 				li
-					a.link._link(href=currentPage === link ? undefined : link)=text
+					a.link.legend._link(href=currentPage === link ? undefined : link)=text
 
 	menu._menu
 		li
@@ -30,9 +30,8 @@ header.header
 			button.favorite.link._action(type="button" aria-label="Избранное" aria-description="12 элементов сохранено" data-choose=12)
 				svg(width=20, height=20, fill="currentColor" aria-hidden="true")
 					use(href="img/interface.svg#heart")
-				//- span._indicator 12
 		li._cta
-			button(type="button").button.-secondary Хочу сюда!
+			button.button.-secondary(type="button" onclick="window['search-hotels'].showModal()") Хочу сюда!
 
 
 

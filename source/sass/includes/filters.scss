@@ -20,7 +20,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		margin-top: 40px;
-		gap: 71px;
+		gap: 30px 6.7%;
+
 	}
 
 	&__field {
@@ -34,10 +35,6 @@
 	}
 
 	&__legend {
-		font-weight: 700;
-		font-size: 20px;
-		line-height: 1.3;
-		text-transform: capitalize;
 		margin-bottom: 30px;
 	}
 

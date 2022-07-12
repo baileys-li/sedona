@@ -1,11 +1,6 @@
 @use "../common/variables";
 
 .custom-chose {
-	&__native {
-		position: absolute;
-		appearance: none;
-	}
-
 	&__text {
 		display: inline-flex;
 		gap: 21px;

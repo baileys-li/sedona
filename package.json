@@ -7,7 +7,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp",
     "build": "cross-env NODE_ENV=production gulp build",
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "validate:html": "w3c-html-validator build"
   },
   "author": "Arthur Baileys Li",
   "license": "ISC",
@@ -28,6 +29,7 @@
     "gulp-svgstore": "^9.0.0",
     "gulp-w3c-html-validator": "^5.1.2",
     "postcss-csso": "^6.0.0",
-    "sass": "^1.52.2"
+    "sass": "^1.52.2",
+    "w3c-html-validator": "^1.1.0"
   }
 }

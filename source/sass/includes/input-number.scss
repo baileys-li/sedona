@@ -1,0 +1,36 @@
+.input-number {
+	display: flex;
+	// align-content: center;
+	align-items: center;
+	margin: 0;
+	&__fake-input {
+		background: #f2f2f2;
+		border-radius: 4px;
+		display: flex;
+	}
+
+	&__action {
+		all: unset;
+		border: none;
+		padding: 5px 19px;
+		cursor: pointer;
+	}
+
+	&__input {
+		all: unset;
+		text-align: center;
+		width: 30px;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 21px;
+		height: 50px;
+
+		-moz-appearance: textfield;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+}

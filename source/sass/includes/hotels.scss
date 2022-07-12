@@ -3,12 +3,31 @@
 
 	display: grid;
 	grid-template-columns: 1fr auto;
+	align-items: center;
+
+	&__title {
+		margin: 0;
+	}
+
+	&__form {
+		display: flex;
+		gap: 78px;
+	}
 
 
 	&__list {
 		grid-column: 1 / -1;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		column-gap: 16px;
+		padding: 56px 0 65px;
+		border-bottom: 1px solid #E6E6E6;
+		margin-bottom: 30px;
+	}
+
+	&__amount {
+		justify-self: end;
 	}
 }
 

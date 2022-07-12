@@ -1,0 +1,30 @@
+.date-input {
+	display: grid;
+	grid-template-columns: auto 420px;
+	align-items: center;
+	margin: 0;
+	position: relative;
+
+	&__icon {
+		position: absolute;
+		right: 19px;
+		top: 18px;
+	}
+
+	&__input {
+		background-color: #f2f2f2;
+		border-radius: 4px;
+		padding: 15px (19px * 2 + 15px) 19px 14px;
+		border: none;
+	}
+
+	&__description {
+		grid-column: 2 / 3;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.3125;
+		&--error {
+			color: #ff5757;
+		}
+	}
+}

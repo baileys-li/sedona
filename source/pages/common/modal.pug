@@ -1,0 +1,44 @@
+mixin date-input(id, value, description, label, error = false)
+	p.date-input
+		-const descriptionID = `${id}-description`
+		label(for=id).legend=`Дата ${label}`
+		input(type="text" name=id id=id value=value aria-describedby=descriptionID)._input
+		svg(aria-hidden="true", width=15, height=15, fill="rgb(0 0 0 / 30%)")._icon
+			use(href="img/interface.svg#date")
+		span._description(class=error && 'date-input__description--error',id=descriptionID)=description
+
+mixin input-number(id, legend, value, info = false)
+	p.input-number
+		label(for=id).legend=legend
+		if info
+			span(aria-description="Укажите количество детей, которые будут с вами, возраст которых от 6 до 18 лет. Дети до 6 лет размещаются бесплатно." tabindex=0).info
+				svg(fill="white", width=13, height=13, aria-hidden="true")
+					use(href="img/interface.svg#info")
+		span._fake-input
+			- const minusTitle = `${id}-minus-title`, plusTitle = `${id}-plus-title`
+			button._action(type="button")
+				svg(fill="currentColor", width=13, height=13, aria-labelledby=minusTitle role="img")
+					title(id=minusTitle) Убавить
+					use(href="img/interface.svg#minus")
+			input._input(type="number" name=id id=id value=value)
+			button._action(type="button")
+				svg(fill="currentColor", width=13, height=13, aria-labelledby=plusTitle role="img")
+					title(id=plusTitle) Прибавить
+					use(href="img/interface.svg#plus")
+
+dialog.modal#search-hotels
+	form._form
+		button._close(onclick="window['search-hotels'].close()" type="button")
+			svg(fill="currentColor", width=13, height=13, aria-labelledby="close-modal-title" role="img")
+				title#close-modal-title Закрыть окно
+				use(href="img/interface.svg#cross")
+
+		h2.subheading._title Поиск гостиницы в Седоне
+
+		+date-input("start-date", "27 апреля 2020", "Мы не можем отправить вас в прошлое.", "заезда", true)
+		+date-input("end-date", "1 сентября 2021", "На эти даты есть свободные номера. Пока есть.", "выезда")
+
+		+input-number("adults", "Взрослые", 2)
+		+input-number("children", "Дети", 0, true)
+
+		button.button._submit Найти
