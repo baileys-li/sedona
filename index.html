@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | Седона</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="page__body">
+    <header class="header"><a class="header__logo"><img src="img/sedona.svg" alt="Герб Седоны" width="139" height="70"></a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a class="link legend header__link">Главная</a></li>
+          <li><a class="link legend header__link" href="about.html">О Седоне</a></li>
+          <li><a class="link legend header__link" href="catalog.html">Гостиницы</a></li>
+        </ul>
+      </nav>
+      <menu class="header__menu">
+        <li><a class="link header__action" href="search.html">
+            <svg width="20" height="20" fill="currentColor" aria-labelledby="search-title" role="img">
+              <title id="search-title">Поиск</title>
+              <use href="img/interface.svg#search"></use>
+            </svg></a></li>
+        <li>
+          <button class="favorite link header__action" type="button" aria-label="Избранное" aria-description="12 элементов сохранено" data-choose="12">
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+              <use href="img/interface.svg#heart"></use>
+            </svg>
+          </button>
+        </li>
+        <li class="header__cta">
+          <button class="button button--secondary" type="button" onclick="window['search-hotels'].showModal()">Хочу сюда!</button>
+        </li>
+      </menu>
+    </header>
+    <main>
+      <section class="intro">
+        <h1 class="visually-hidden">Добро пожаловать в прекрасную Седону!</h1><img class="intro__image" src="img/welcome.svg" alt="«Потому что Гранд Каньон отстой!»" width="458" height="352">
+      </section>
+      <section class="features">
+        <h2 class="visually-hidden">Преимущества</h2>
+        <p class="features__intro"><strong class="subheading features__title">Седона — небольшой городок в Аризоне, заслуживающий большего!</strong> Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!</p>
+        <ol class="features__list">
+          <li class="features__panorama">
+            <figure class="features__figure">
+              <figcaption class="feature feature--order feature--order label">
+                <h3 class="caption">Настоящий городок</h3>
+                <p class="feature__description">Седона — не аттракцион для туристов, там течёт своя жизнь</p>
+              </figcaption><img class="features__picture" src="img/photo-1.jpg" alt="Уютная площадь в небольшом городишке." width="800" height="384">
+            </figure>
+            <ul class="features__list features__list--sub">
+              <li class="feature label features__item">
+                <h4 class="caption">Жилье</h4>
+                <svg class="feature__icon" fill="#83B3D3" aria-hidden="true" width="75" height="75">
+                  <use href="img/feature.svg#housing"></use>
+                </svg>
+                <p class="feature__description">Рекомендуем пожить в настоящем мотеле, всё как в кино!</p>
+              </li>
+              <li class="feature label features__item">
+                <h4 class="caption">Еда</h4>
+                <svg class="feature__icon" fill="#83B3D3" aria-hidden="true" width="75" height="75">
+                  <use href="img/feature.svg#eating"></use>
+                </svg>
+                <p class="feature__description">Всегда заказывайте топовый фирменный бургер, вы не разочаруетесь!</p>
+              </li>
+              <li class="feature label features__item">
+                <h4 class="caption">Сувениры</h4>
+                <svg class="feature__icon" fill="#83B3D3" aria-hidden="true" width="75" height="75">
+                  <use href="img/feature.svg#souvenir"></use>
+                </svg>
+                <p class="feature__description">Не только китайского, но и настоящего местного производства!</p>
+              </li>
+            </ul>
+          </li>
+          <li class="features__panorama">
+            <figure class="features__figure features__figure--reverse">
+              <figcaption class="feature feature--order feature--order label">
+                <h3 class="caption">Там есть мост дьявола</h3>
+                <p class="feature__description">Да, по нему можно пройти! Если вы осмелитесь, разумеется</p>
+              </figcaption><img class="features__picture" src="img/photo-2.jpg" alt="Обтёсанный природой каменный мост сквозь ущелье" width="800" height="384">
+            </figure>
+          </li>
+          <li class="feature feature--order label features__item">
+            <h3 class="caption">Небольшая площадь</h3>
+            <p class="feature__description">Все достопримечательности находятся очень близко</p>
+          </li>
+          <li class="feature feature--order label features__item">
+            <h3 class="caption">Красивая дорога</h3>
+            <p class="feature__description">Ехать в Седону из Лас-Вегаса совсем не скучно!</p>
+          </li>
+          <li class="feature feature--order label features__item">
+            <h3 class="caption">Мало туристов</h3>
+            <p class="feature__description">Большинство едет в Гранд Каньон и толпится там</p>
+          </li>
+        </ol>
+      </section>
+      <section class="cta">
+        <h2 class="subheading">Заинтересовались?</h2>
+        <p>Укажите предполагаемые даты поездки,<br>и мы покажем вам лучшие предложения гостиниц в Седоне</p>
+        <button class="button button--secondary" type="button">Поиск гостиницы в Седоне</button>
+      </section>
+      <form class="subscription subscription--background" method="POST" action="https://echo.htmlacademy.ru/">
+        <h2 class="subheading">
+          <label for="email">Подпишитесь на рассылку</label>
+        </h2>
+        <p class="subscription__lead" id="email-desc">Только полезная информация и никакого спама, честное бойскаутское!</p>
+        <input class="subscription__input label" id="email" type="email" name="email" placeholder="Ваш e-mail" required aria-describedby="email-desc">
+        <button class="button subscription__submit" type="submit">Подписаться</button>
+      </form>
+    </main>
+    <footer class="footer">
+      <ul class="footer__socials">
+        <li><a class="footer__social" href="https://vk.com/htmlacademy">
+            <svg fill="currentColor" aria-labelledby="vk-title" role="img" width="25" height="14">
+              <title id="vk-title">Мы ВКонтанте</title>
+              <use href="img/social.svg#vk"></use>
+            </svg></a></li>
+        <li><a class="footer__social" href="https://t.me/htmlacademy">
+            <svg fill="currentColor" aria-labelledby="telegram-title" role="img" width="19" height="16">
+              <title id="telegram-title">Наш Телеграм</title>
+              <use href="img/social.svg#telegram"></use>
+            </svg></a></li>
+        <li><a class="footer__social" href="https://www.youtube.com/user/htmlacademyru">
+            <svg fill="currentColor" aria-labelledby="youtube-title" role="img" width="23" height="18">
+              <title id="youtube-title">Наш Ютуб канал</title>
+              <use href="img/social.svg#youtube"></use>
+            </svg></a></li>
+      </ul>
+      <address><a class="footer__tel" href="tel:+78128121212"><span class="visually-hidden">Звоните нам на </span>+7 (812) 812-12-12</a></address><small><a href="https://htmlacademy.ru/"><img src="img/htmlacademy.svg" alt="Разработка сайта от HTML Академии" width="115" height="33"></a></small>
+    </footer>
+    <dialog class="modal" id="search-hotels">
+      <form class="modal__form">
+        <button class="modal__close" onclick="window['search-hotels'].close()" type="button">
+          <svg fill="currentColor" width="13" height="13" aria-labelledby="close-modal-title" role="img">
+            <title id="close-modal-title">Закрыть окно</title>
+            <use href="img/interface.svg#cross"></use>
+          </svg>
+        </button>
+        <h2 class="subheading modal__title">Поиск гостиницы в Седоне</h2>
+            <p class="date-input">
+              <label class="legend" for="start-date">Дата заезда</label>
+              <input class="date-input__input" type="text" name="start-date" id="start-date" value="27 апреля 2020" aria-describedby="start-date-description">
+              <svg class="date-input__icon" aria-hidden="true" width="15" height="15" fill="rgb(0 0 0 / 30%)">
+                <use href="img/interface.svg#date"></use>
+              </svg><span class="date-input__description date-input__description--error" id="start-date-description">Мы не можем отправить вас в прошлое.</span>
+            </p>
+            <p class="date-input">
+              <label class="legend" for="end-date">Дата выезда</label>
+              <input class="date-input__input" type="text" name="end-date" id="end-date" value="1 сентября 2021" aria-describedby="end-date-description">
+              <svg class="date-input__icon" aria-hidden="true" width="15" height="15" fill="rgb(0 0 0 / 30%)">
+                <use href="img/interface.svg#date"></use>
+              </svg><span class="date-input__description" id="end-date-description">На эти даты есть свободные номера. Пока есть.</span>
+            </p>
+            <p class="input-number">
+              <label class="legend" for="adults">Взрослые</label><span class="input-number__fake-input">
+                <button class="input-number__action" type="button">
+                  <svg fill="currentColor" width="13" height="13" aria-labelledby="adults-minus-title" role="img">
+                    <title id="adults-minus-title">Убавить</title>
+                    <use href="img/interface.svg#minus"></use>
+                  </svg>
+                </button>
+                <input class="input-number__input" type="number" name="adults" id="adults" value="2">
+                <button class="input-number__action" type="button">
+                  <svg fill="currentColor" width="13" height="13" aria-labelledby="adults-plus-title" role="img">
+                    <title id="adults-plus-title">Прибавить</title>
+                    <use href="img/interface.svg#plus"></use>
+                  </svg>
+                </button></span>
+            </p>
+            <p class="input-number">
+              <label class="legend" for="children">Дети</label><span class="info" aria-description="Укажите количество детей, которые будут с вами, возраст которых от 6 до 18 лет. Дети до 6 лет размещаются бесплатно." tabindex="0">
+                <svg fill="white" width="13" height="13" aria-hidden="true">
+                  <use href="img/interface.svg#info"></use>
+                </svg></span><span class="input-number__fake-input">
+                <button class="input-number__action" type="button">
+                  <svg fill="currentColor" width="13" height="13" aria-labelledby="children-minus-title" role="img">
+                    <title id="children-minus-title">Убавить</title>
+                    <use href="img/interface.svg#minus"></use>
+                  </svg>
+                </button>
+                <input class="input-number__input" type="number" name="children" id="children" value="0">
+                <button class="input-number__action" type="button">
+                  <svg fill="currentColor" width="13" height="13" aria-labelledby="children-plus-title" role="img">
+                    <title id="children-plus-title">Прибавить</title>
+                    <use href="img/interface.svg#plus"></use>
+                  </svg>
+                </button></span>
+            </p>
+        <button class="button modal__submit">Найти</button>
+      </form>
+    </dialog>
+  </body>
+</html>

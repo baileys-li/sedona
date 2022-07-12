@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостиницы Седоны</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="page__body">
+    <header class="header"><a class="header__logo" href="index.html"><img src="img/sedona.svg" alt="Герб Седоны" width="139" height="70"></a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a class="link legend header__link" href="index.html">Главная</a></li>
+          <li><a class="link legend header__link" href="about.html">О Седоне</a></li>
+          <li><a class="link legend header__link">Гостиницы</a></li>
+        </ul>
+      </nav>
+      <menu class="header__menu">
+        <li><a class="link header__action" href="search.html">
+            <svg width="20" height="20" fill="currentColor" aria-labelledby="search-title" role="img">
+              <title id="search-title">Поиск</title>
+              <use href="img/interface.svg#search"></use>
+            </svg></a></li>
+        <li>
+          <button class="favorite link header__action" type="button" aria-label="Избранное" aria-description="12 элементов сохранено" data-choose="12">
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+              <use href="img/interface.svg#heart"></use>
+            </svg>
+          </button>
+        </li>
+        <li class="header__cta">
+          <button class="button button--secondary" type="button" onclick="window['search-hotels'].showModal()">Хочу сюда!</button>
+        </li>
+      </menu>
+    </header>
+    <main>
+      <section class="filters">
+        <h1 class="heading filters__title">Гостиницы Седоны</h1>
+        <ol class="breadcrumb filters__breadcrumb">
+          <li><a class="breadcrumb__link" href="index.html">
+              <svg fill="currentColor" width="15" height="15" role="img" aria-labelledby="home-title">
+                <title id="home-title">Главная</title>
+                <use href="img/interface.svg#home"></use>
+              </svg></a></li>
+          <li>Гостиницы</li>
+        </ol>
+        <form class="filters__form" method="GET" action="https://echo.htmlacademy.ru/">
+          <fieldset class="filters__field label">
+            <legend class="legend filters__legend">Инфраструктура</legend>
+            <label class="custom-chose">
+              <input class="visually-hidden custom-chose__native" type="checkbox" name="infrastructure" id="pool" value="pool" checked><span class="custom-chose__text custom-chose__text--checkbox">Бассейн</span>
+            </label>
+            <label class="custom-chose">
+              <input class="visually-hidden custom-chose__native" type="checkbox" name="infrastructure" id="parking" value="parking" checked><span class="custom-chose__text custom-chose__text--checkbox">Парковка</span>
+            </label>
+            <label class="custom-chose">
+              <input class="visually-hidden custom-chose__native" type="checkbox" name="infrastructure" id="wi-fi" value="wi-fi"><span class="custom-chose__text custom-chose__text--checkbox">Wi-Fi</span>
+            </label>
+          </fieldset>
+          <fieldset class="filters__field label">
+            <legend class="legend filters__legend">Тип жилья</legend>
+            <label class="custom-chose">
+              <input class="visually-hidden custom-chose__native" type="radio" name="type" id="hotel" value="hotel" checked><span class="custom-chose__text custom-chose__text--radio">Гостиница</span>
+            </label>
+            <label class="custom-chose">
+              <input class="visually-hidden custom-chose__native" type="radio" name="type" id="motel" value="motel"><span class="custom-chose__text custom-chose__text--radio">Мотель</span>
+            </label>
+            <label class="custom-chose">
+              <input class="visually-hidden custom-chose__native" type="radio" name="type" id="apartments" value="apartments"><span class="custom-chose__text custom-chose__text--radio">Апартаменты</span>
+            </label>
+          </fieldset>
+          <fieldset class="filters__field label">
+            <legend class="legend filters__legend">Стоимость, ₽</legend>
+            <p class="double-number label filters__cost">
+              <label class="double-number__label">от
+                <input class="double-number__input" type="number" value="0" min="0" max="11000">
+              </label>
+              <label class="double-number__label">до
+                <input class="double-number__input" type="number" value="9000" min="0" max="11000">
+              </label>
+            </p>
+            <p class="range-slider" style="--first-val: 0%; --second-val: 81.81818181818181%;">
+              <input class="range-slider__input" type="range" min="0" max="11000" value="0" step="100" aria-label="Минимальная цена">
+              <input class="range-slider__input" type="range" min="0" max="11000" value="9000" step="100" aria-label="Максимальная цена">
+            </p>
+          </fieldset>
+          <menu class="filters__buttons">
+            <li>
+              <button class="button filters__submit">Применить</button>
+            </li>
+            <li>
+              <button class="filters__reset button" type="reset">Сбросить</button>
+            </li>
+          </menu>
+        </form>
+      </section>
+      <section class="hotels">
+        <h2 class="subheading hotels__title">Найдено гостиниц:
+          <output>38</output>
+        </h2>
+        <form class="hotels__form" method="GET" action="https://echo.htmlacademy.ru/">
+          <select class="select label" name="sort" aria-label="Сортировать">
+            <option selected value="cheap">Сначала дешёвые</option>
+            <option value="expensive">Сначала дорогие</option>
+            <option value="popular">Самые популярные</option>
+          </select>
+          <fieldset class="mode">
+            <legend class="visually-hidden">Вид</legend>
+            <input class="visually-hidden mode__input" type="radio" name="appearance" value="cards" id="mode-cards" checked>
+            <label class="mode__label" for="mode-cards">
+              <svg role="img" aria-labelledby="cards-title" fill="black" width="20" height="20">
+                <title id="cards-title">Карточками</title>
+                <use href="img/mode.svg#cards"></use>
+              </svg>
+            </label>
+            <input class="visually-hidden mode__input" type="radio" name="appearance" value="panorama" id="mode-panorama">
+            <label class="mode__label" for="mode-panorama">
+              <svg role="img" aria-labelledby="panorama-title" fill="black" width="20" height="20">
+                <title id="panorama-title">Панорамой</title>
+                <use href="img/mode.svg#panorama"></use>
+              </svg>
+            </label>
+            <input class="visually-hidden mode__input" type="radio" name="appearance" value="table" id="mode-table">
+            <label class="mode__label" for="mode-table">
+              <svg role="img" aria-labelledby="table-title" fill="black" width="20" height="20">
+                <title id="table-title">Таблицей</title>
+                <use href="img/mode.svg#table"></use>
+              </svg>
+            </label>
+          </fieldset>
+          <button class="visually-hidden" type="submit">Отправить</button>
+        </form>
+        <div class="hotels__list">
+          <article class="hotel-card label">
+            <h3 class="hotel-card__title caption">Amara Resort &amp; Spa</h3><img class="hotel-card__image" src="img/hotel-1.jpg" alt="Скалы.">
+            <p class="hotel-card__info">Гостиница</p>
+            <p class="hotel-card__info">От 5000 ₽</p><a class="button button--secondary" href="hotel/amara">Подробнее</a>
+            <button class="button" type="button">В избранное</button>
+                  <svg width="90" height="18" fill="#83B3D3" role="img" aria-labelledby="stars-0">
+                    <title id="stars-0">четырёхзвёздочный</title>
+                    <use href="img/interface.svg#star" width="18" height="18" x="0"></use>
+                    <use href="img/interface.svg#star" width="18" height="18" x="24"></use>
+                    <use href="img/interface.svg#star" width="18" height="18" x="48"></use>
+                    <use href="img/interface.svg#star" width="18" height="18" x="72"></use>
+                  </svg>
+            <p class="hotel-card__rate button">Рейтинг: 8,5</p>
+          </article>
+          <article class="hotel-card label">
+            <h3 class="hotel-card__title caption">Villas at Poco Diablo</h3><img class="hotel-card__image" src="img/hotel-2.jpg" alt="Горы.">
+            <p class="hotel-card__info">Гостиница</p>
+            <p class="hotel-card__info">От 5000 ₽</p><a class="button button--secondary" href="hotel/villas">Подробнее</a>
+            <button class="button button--selected" type="button">В избранном</button>
+                  <svg width="90" height="18" fill="#83B3D3" role="img" aria-labelledby="stars-1">
+                    <title id="stars-1">четырёхзвёздочный</title>
+                    <use href="img/interface.svg#star" width="18" height="18" x="0"></use>
+                    <use href="img/interface.svg#star" width="18" height="18" x="24"></use>
+                    <use href="img/interface.svg#star" width="18" height="18" x="48"></use>
+                    <use href="img/interface.svg#star" width="18" height="18" x="72"></use>
+                  </svg>
+            <p class="hotel-card__rate button">Рейтинг: 9,2</p>
+          </article>
+          <article class="hotel-card label">
+            <h3 class="hotel-card__title caption">Desert Quail Inn</h3><img class="hotel-card__image" src="img/hotel-3.jpg" alt="Ещё гора.">
+            <p class="hotel-card__info">Гостиница</p>
+            <p class="hotel-card__info">От 2500 ₽</p><a class="button button--secondary" href="hotel/desert">Подробнее</a>
+            <button class="button" type="button">В избранное</button>
+                  <svg width="66" height="18" fill="#83B3D3" role="img" aria-labelledby="stars-2">
+                    <title id="stars-2">трёхзвёздочный</title>
+                    <use href="img/interface.svg#star" width="18" height="18" x="0"></use>
+                    <use href="img/interface.svg#star" width="18" height="18" x="24"></use>
+                    <use href="img/interface.svg#star" width="18" height="18" x="48"></use>
+                  </svg>
+            <p class="hotel-card__rate button">Рейтинг: 6,9</p>
+          </article>
+          <article class="hotel-card label">
+            <h3 class="hotel-card__title caption">GreenTree Inn</h3><img class="hotel-card__image" src="img/hotel-4.jpg" alt="И ещё гора.">
+            <p class="hotel-card__info">Гостиница</p>
+            <p class="hotel-card__info">От 1500 ₽</p><a class="button button--secondary" href="hotel/desert">Подробнее</a>
+            <button class="button" type="button">В избранное</button>
+                  <svg width="42" height="18" fill="#83B3D3" role="img" aria-labelledby="stars-3">
+                    <title id="stars-3">двухзвёздочный</title>
+                    <use href="img/interface.svg#star" width="18" height="18" x="0"></use>
+                    <use href="img/interface.svg#star" width="18" height="18" x="24"></use>
+                  </svg>
+            <p class="hotel-card__rate button">Рейтинг: 5,0</p>
+          </article>
+        </div>
+        <ol class="pagination" aria-label="Страницы">
+          <li><a class="pagination__page" aria-label="Первая страница">1</a></li>
+          <li><a class="pagination__page" href="/page2" aria-label="Вторая страница">2</a></li>
+          <li><a class="pagination__page" href="/page2" aria-label="Третья страница">3</a></li>
+          <li><a class="pagination__page" href="/page2" aria-label="Четвёртая страница">4</a></li>
+          <li>
+            <button class="pagination__page" type="button" aria-label="Показать ещё">…</button>
+          </li>
+          <li value="10"><a class="pagination__page" href="/page10" aria-label="Десятая страница">10</a></li>
+        </ol>
+        <label class="label hotels__amount">Гостиниц на странице:
+          <select class="select" name="amount">
+            <option value="4" selected>4</option>
+            <option value="8">8</option>
+            <option value="12">12</option>
+            <option value="16">16</option>
+          </select>
+        </label>
+      </section>
+      <form class="subscription" method="POST" action="https://echo.htmlacademy.ru/">
+        <h2 class="subheading">
+          <label for="email">Подпишитесь на рассылку</label>
+        </h2>
+        <p class="subscription__lead" id="email-desc">Только полезная информация и никакого спама, честное бойскаутское!</p>
+        <input class="subscription__input label" id="email" type="email" name="email" placeholder="Ваш e-mail" required aria-describedby="email-desc">
+        <button class="button subscription__submit" type="submit">Подписаться</button>
+      </form>
+    </main>
+    <footer class="footer">
+      <ul class="footer__socials">
+        <li><a class="footer__social" href="https://vk.com/htmlacademy">
+            <svg fill="currentColor" aria-labelledby="vk-title" role="img" width="25" height="14">
+              <title id="vk-title">Мы ВКонтанте</title>
+              <use href="img/social.svg#vk"></use>
+            </svg></a></li>
+        <li><a class="footer__social" href="https://t.me/htmlacademy">
+            <svg fill="currentColor" aria-labelledby="telegram-title" role="img" width="19" height="16">
+              <title id="telegram-title">Наш Телеграм</title>
+              <use href="img/social.svg#telegram"></use>
+            </svg></a></li>
+        <li><a class="footer__social" href="https://www.youtube.com/user/htmlacademyru">
+            <svg fill="currentColor" aria-labelledby="youtube-title" role="img" width="23" height="18">
+              <title id="youtube-title">Наш Ютуб канал</title>
+              <use href="img/social.svg#youtube"></use>
+            </svg></a></li>
+      </ul>
+      <address><a class="footer__tel" href="tel:+78128121212"><span class="visually-hidden">Звоните нам на </span>+7 (812) 812-12-12</a></address><small><a href="https://htmlacademy.ru/"><img src="img/htmlacademy.svg" alt="Разработка сайта от HTML Академии" width="115" height="33"></a></small>
+    </footer>
+    <dialog class="modal" id="search-hotels">
+      <form class="modal__form">
+        <button class="modal__close" onclick="window['search-hotels'].close()" type="button">
+          <svg fill="currentColor" width="13" height="13" aria-labelledby="close-modal-title" role="img">
+            <title id="close-modal-title">Закрыть окно</title>
+            <use href="img/interface.svg#cross"></use>
+          </svg>
+        </button>
+        <h2 class="subheading modal__title">Поиск гостиницы в Седоне</h2>
+            <p class="date-input">
+              <label class="legend" for="start-date">Дата заезда</label>
+              <input class="date-input__input" type="text" name="start-date" id="start-date" value="27 апреля 2020" aria-describedby="start-date-description">
+              <svg class="date-input__icon" aria-hidden="true" width="15" height="15" fill="rgb(0 0 0 / 30%)">
+                <use href="img/interface.svg#date"></use>
+              </svg><span class="date-input__description date-input__description--error" id="start-date-description">Мы не можем отправить вас в прошлое.</span>
+            </p>
+            <p class="date-input">
+              <label class="legend" for="end-date">Дата выезда</label>
+              <input class="date-input__input" type="text" name="end-date" id="end-date" value="1 сентября 2021" aria-describedby="end-date-description">
+              <svg class="date-input__icon" aria-hidden="true" width="15" height="15" fill="rgb(0 0 0 / 30%)">
+                <use href="img/interface.svg#date"></use>
+              </svg><span class="date-input__description" id="end-date-description">На эти даты есть свободные номера. Пока есть.</span>
+            </p>
+            <p class="input-number">
+              <label class="legend" for="adults">Взрослые</label><span class="input-number__fake-input">
+                <button class="input-number__action" type="button">
+                  <svg fill="currentColor" width="13" height="13" aria-labelledby="adults-minus-title" role="img">
+                    <title id="adults-minus-title">Убавить</title>
+                    <use href="img/interface.svg#minus"></use>
+                  </svg>
+                </button>
+                <input class="input-number__input" type="number" name="adults" id="adults" value="2">
+                <button class="input-number__action" type="button">
+                  <svg fill="currentColor" width="13" height="13" aria-labelledby="adults-plus-title" role="img">
+                    <title id="adults-plus-title">Прибавить</title>
+                    <use href="img/interface.svg#plus"></use>
+                  </svg>
+                </button></span>
+            </p>
+            <p class="input-number">
+              <label class="legend" for="children">Дети</label><span class="info" aria-description="Укажите количество детей, которые будут с вами, возраст которых от 6 до 18 лет. Дети до 6 лет размещаются бесплатно." tabindex="0">
+                <svg fill="white" width="13" height="13" aria-hidden="true">
+                  <use href="img/interface.svg#info"></use>
+                </svg></span><span class="input-number__fake-input">
+                <button class="input-number__action" type="button">
+                  <svg fill="currentColor" width="13" height="13" aria-labelledby="children-minus-title" role="img">
+                    <title id="children-minus-title">Убавить</title>
+                    <use href="img/interface.svg#minus"></use>
+                  </svg>
+                </button>
+                <input class="input-number__input" type="number" name="children" id="children" value="0">
+                <button class="input-number__action" type="button">
+                  <svg fill="currentColor" width="13" height="13" aria-labelledby="children-plus-title" role="img">
+                    <title id="children-plus-title">Прибавить</title>
+                    <use href="img/interface.svg#plus"></use>
+                  </svg>
+                </button></span>
+            </p>
+        <button class="button modal__submit">Найти</button>
+      </form>
+    </dialog>
+  </body>
+</html>
