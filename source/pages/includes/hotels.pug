@@ -1,3 +1,44 @@
+-
+	const HOTELS = [
+		{
+			title:"Amara Resort & Spa",
+			image: "img/hotel-1.jpg", alt: "Скалы.",
+			type: "Гостиница", price: 5000, href: "hotel/amara",
+			rating: 8.5, stars: 4, altStar: "четырёхзвёздочный"
+		}, {
+			title:"Villas at Poco Diablo",
+			image: "img/hotel-2.jpg", alt: "Горы.",
+			type: "Гостиница", price: 5000, href: "hotel/villas",
+			rating: 9.2, stars: 4, altStar: "четырёхзвёздочный"
+		}, {
+			title:"Desert Quail Inn",
+			image: "img/hotel-3.jpg", alt: "Ещё гора.",
+			type: "Гостиница", price: 2500, href: "hotel/desert",
+			rating: 6.9, stars: 3, altStar: "трёхзвёздочный"
+		},{
+			title:"GreenTree Inn",
+			image: "img/hotel-4.jpg", alt: "И ещё гора.",
+			type: "Гостиница", price: 1500, href: "hotel/desert",
+			rating: 5, stars: 2, altStar: "двухзвёздочный"
+		},
+	]
+	const starSize = 18;
+	const starGap = 6;
+
+mixin markStars(stars, label, alt)
+	svg(
+		width=stars * starSize + (stars - 1) * starGap,
+		height=starSize,
+		fill="#83B3D3",
+		role="img",
+		aria-labelledby=label
+	)
+		title(id=label)=alt
+		- let n = 0;
+		while n < stars
+			use(href="img/interface.svg#star", width=starSize, height=starSize, x=(starSize + starGap) * n)
+			- n++;
+
 section.hotels
 	h2.subheading._title Найдено гостиниц:
 		output 38
@@ -29,47 +70,6 @@ section.hotels
 
 
 	._list
-		-
-			const HOTELS = [
-				{
-					title:"Amara Resort & Spa",
-					image: "img/hotel-1.jpg", alt: "Скалы.",
-					type: "Гостиница", price: 5000, href: "hotel/amara",
-					rating: 8.5, stars: 4, altStar: "четырёхзвёздочный"
-				}, {
-					title:"Villas at Poco Diablo",
-					image: "img/hotel-2.jpg", alt: "Горы.",
-					type: "Гостиница", price: 5000, href: "hotel/villas",
-					rating: 9.2, stars: 4, altStar: "четырёхзвёздочный"
-				}, {
-					title:"Desert Quail Inn",
-					image: "img/hotel-3.jpg", alt: "Ещё гора.",
-					type: "Гостиница", price: 2500, href: "hotel/desert",
-					rating: 6.9, stars: 3, altStar: "трёхзвёздочный"
-				},{
-					title:"GreenTree Inn",
-					image: "img/hotel-4.jpg", alt: "И ещё гора.",
-					type: "Гостиница", price: 1500, href: "hotel/desert",
-					rating: 5, stars: 2, altStar: "двухзвёздочный"
-				},
-			]
-			const starSize = 18;
-			const starGap = 6;
-
-		mixin markStars(stars, label, alt)
-			svg(
-				width=stars * starSize + (stars - 1) * starGap,
-				height=starSize,
-				fill="#83B3D3",
-				role="img",
-				aria-labelledby=label
-			)
-				title(id=label)=alt
-				- let n = 0;
-				while n < stars
-					use(href="img/interface.svg#star", width=starSize, height=starSize, x=(starSize + starGap) * n)
-					- n++;
-
 		each hotel, index in HOTELS
 			article.hotel-card.label
 				h3._title.caption=hotel.title

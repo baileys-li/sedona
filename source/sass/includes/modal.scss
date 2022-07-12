@@ -1,0 +1,59 @@
+.modal {
+	background: #ffffff;
+	box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.15);
+	border-radius: 30px;
+	border: none;
+	padding: 0;
+	max-width: 715px;
+
+	&::backdrop {
+		background-color: rgb(242 242 242 / 80%);
+	}
+
+	&__form {
+		padding: 62px 70px 70px;
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 11px;
+		justify-content: space-between;
+	}
+
+	&__close {
+		all: unset;
+		cursor: pointer;
+		background-color: hsl(0, 0%, 95%);
+		width: 53px;
+		height: 53px;
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		top: 54px;
+		right: 70px;
+		position: absolute;
+	}
+
+	&__title {
+		margin: 0 60px (63px - 11px) 0;
+		flex-basis: 100%;
+	}
+
+	.date-input {
+		flex-basis: 100%;
+	}
+
+	.legend {
+		color: #000000;
+		&::after {
+			content: ":";
+		}
+	}
+
+	&__submit {
+		margin-top: (40 - 11) * 1px;
+		flex-basis: 100%;
+		padding: 12px 26px;
+		font-size: 20px;
+		line-height: 1.8;
+	}
+}

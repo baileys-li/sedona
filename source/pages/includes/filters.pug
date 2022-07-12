@@ -11,7 +11,7 @@ section.filters
 
 	form._form(method="GET", action="https://echo.htmlacademy.ru/")
 		fieldset._field.label
-			legend._legend Инфраструктура
+			legend.legend._legend Инфраструктура
 
 			-const INFRASTRUCTURE = { pool: "Бассейн", parking: "Парковка", "wi-fi": "Wi-Fi" }
 
@@ -22,7 +22,7 @@ section.filters
 					span._text.-checkbox=text
 
 		fieldset._field.label
-			legend._legend Тип жилья
+			legend.legend._legend Тип жилья
 
 			-const TYPE_HOUSE={ hotel: "Гостиница", motel: "Мотель", apartments: "Апартаменты" }
 			each text, value in TYPE_HOUSE
@@ -33,7 +33,7 @@ section.filters
 
 
 		fieldset._field.label
-			legend._legend Стоимость, ₽
+			legend.legend._legend Стоимость, ₽
 
 			-const SLIDER = { min: 0, max: 11000, values: [0, 9000], step: 100 };
 			p.double-number.label._cost
